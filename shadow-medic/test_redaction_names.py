@@ -40,6 +40,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import compare  # noqa: E402
 
+# Every case runs against one fixed word list, the words these cases look up, cut from macOS's
+# /usr/share/dict/words. Machines ship different lists and a CI runner ships none, so without the pin a
+# lowercase-word case would pass on one machine and fail on another.
+compare._dict_cache[:] = [frozenset((pathlib.Path(HERE) / "testdata" / "words.txt").read_text().split())]
+
 passed = failed = 0
 NAME_KINDS = ("full name", "surname", "first name", "short name", "slug")
 
