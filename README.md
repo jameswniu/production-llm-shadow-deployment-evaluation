@@ -115,7 +115,7 @@ bash run-tests.sh
 
 The first command reruns the gate and checks every number, badge and figure on this page. The second runs the 275 redaction, harvest and storage tests. The 123 challenger runs that logged token counts used 1,651,323 tokens, about 13,400 per incident.
 
-## Run it on your own workflow
+## Point it at your own workflow
 
 Find the one seam where your agent calls its model, point `SHADOW_LEDGER` at whatever log records what it decided (the harvester reads four fields, `at`, `stage`, `action` and `note`), and run `python3 harvest.py --dry-run`. The walkthrough with a `meta.json` example is in [`docs/adopt.md`](docs/adopt.md).
 
