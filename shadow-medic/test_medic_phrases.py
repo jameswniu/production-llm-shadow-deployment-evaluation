@@ -77,12 +77,10 @@ for text, want in (("Left HAND replied.", "Left HAND"), ("Evidence GREEN replied
     check(f"a pair that is not one of the medic's phrases is minted ({want!r})", want in minted(text), minted(text))
 leads = {p.split()[0] for p in harvest.MEDIC_PHRASES} | harvest.CASE_ID_LEADS
 check("no phrase starts with a two-letter word, which can be a given name", not [w for w in leads if len(w) <= 2], sorted(w for w in leads if len(w) <= 2))
-given = pathlib.Path("/usr/share/dict/propernames")
-if given.exists():
-    names = {ln.strip() for ln in given.open() if ln.strip()}
-    check("no phrase starts with a word on the system's list of given names", not (leads & names), sorted(leads & names))
-else:
-    print("  skip  no /usr/share/dict/propernames here, the given-name check did not run")
+# A fixed copy of macOS's /usr/share/dict/propernames, so this check runs the same on every machine.
+given = pathlib.Path(__file__).parent / "testdata" / "given-names.txt"
+names = {ln.strip() for ln in given.open() if ln.strip()}
+check("no phrase starts with a word on the list of given names", not (leads & names), sorted(leads & names))
 check("a medic lead before a name-shaped word is minted ('Claim Jones')", "Claim Jones" in minted("Claim Jones signed."),
       minted("Claim Jones signed."))
 check("a medic lead before a capital word outside the list is minted ('Claim SMITH')",

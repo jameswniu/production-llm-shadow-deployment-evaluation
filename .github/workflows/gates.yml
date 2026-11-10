@@ -92,7 +92,10 @@ jobs:
           sys.exit(1 if bad else 0)
           PY
 
-      - name: README scoreboard and axis figure match live output
+      - name: Every figure and the verdict table match their generators
+        run: make figures-check verdicts-check
+
+      - name: README scoreboard, badges and figures match live output
         run: python3 shadow-medic/check-readme-scoreboard.py
 
       - name: No em or en dashes in tracked prose

@@ -1,24 +1,24 @@
 #!/usr/bin/env python3
 """harvest.py [--limit N] [--dry-run]
 
-Turns entries from the ping-heal ledger, the log of every action the medic (the automated
-worker that diagnoses red alerts) took on one, into case directories for shadow-medic, this
+Turns entries from the medic's ledger, the log of every action the medic (the trusted Claude
+agent that diagnoses failed scheduled jobs) took on one, into case directories for shadow-medic, this
 folder's harness that replays those diagnoses against a challenger model. For each distinct
 diagnosable event (stage, first substantive rerun/annotated/closed entry), it
-freezes: the run.log window around the event, the stage's own log window, and
+freezes: the runner-log (run.log) window around the event, the stage's own log window, and
 the ledger note as the answer key (class from the action: rerun/closed ->
 MECHANICAL, annotated -> JUDGMENT). Inputs are auto-redacted with a per-case
 roster; a case that fails the leak check or has empty evidence is skipped
 loudly, never written half-made.
 """
-# A comment that cites the adversary marks a hole that an adversarial reviewer, a second model told to
+# A comment that cites a refuting review marks a hole that an adversarial reviewer, a second model told to
 # refute each change, found here, and the fix that closed it.
 import json
 import os, os, re, sys, subprocess, pathlib, datetime, tempfile, shutil
 
 HOME = pathlib.Path.home()
-# claude-os is the private repo of scheduled automation stages this harness studies; the medic's
-# ledger and the fleet's run logs live under it. SHADOW_FLEET points at another fleet's root and
+# The fleet is the private set of scheduled jobs this harness studies; the medic's ledger and the
+# fleet's run logs live under its root. SHADOW_FLEET points at another fleet's root and
 # SHADOW_LEDGER at another ledger; the defaults are the author's own fleet.
 FLEET = pathlib.Path(os.environ['SHADOW_FLEET']).expanduser() if os.environ.get('SHADOW_FLEET') else HOME / 'claude-os'
 LEDGER = pathlib.Path(os.environ['SHADOW_LEDGER']) if os.environ.get('SHADOW_LEDGER') else FLEET / 'state/ping-heal-ledger.jsonl'
@@ -263,7 +263,7 @@ NOT_NAMES = {'Exceeded USD', 'Budget limit', 'Fired RUN'}
 # ledger as of 2026-10-17 the way the runner's status words come from run-stage.sh, or a case id the
 # medic fixed or applied ("Fix M-" before "M-20260912T220806"). A rule built from separate lists of
 # lead words and emphasis words skipped pairs the medic never wrote, and some were people ("Left HAND",
-# "Evidence GREEN"), so only the exact phrases count (adversary, 2026-10-18). Any other pair, a longer
+# "Evidence GREEN"), so only the exact phrases count (a refuting review on 2026-10-18 found this). Any other pair, a longer
 # capture ("Claim RENEWED GREEN"), a first name before an emphasis word ("Tavio DONE"), a name with an
 # acronym ("Orvin CA RTR") and a company ("Quillfern AI") are minted as before. A phrase the medic
 # starts writing later is minted until it is added here, the safe direction, and test_medic_phrases.py
@@ -291,7 +291,7 @@ def promote(stage_dir, case, slug, roster):
     holds real names, so it goes to the store outside the repo, never into the case folder (see
     compare.py), and it is saved before the case lands, so a case is never in cases/ without its map.
     If the move then fails, the old case folder and the map the store held before both come back, so
-    an old case is never lost or left paired with a new roster (adversary, 2026-10-18)."""
+    an old case is never lost or left paired with a new roster (a refuting review on 2026-10-18 found this)."""
     store = cmp_mod.map_path(slug)
     prior = store.read_text() if store.exists() else None
     old = case.with_name('.' + case.name + '.replaced') if case.exists() else None
@@ -328,7 +328,7 @@ def build_roster(text):
     # can drop a REAL name ("Jane Smith" beside a lowercase "jane-smith") and then nothing ever
     # redacts it. Over-redaction is safe; a missed name is not. The vocabulary filter lives in
     # compare.py, applied only to the single tokens derived from the roster.
-    # Build-time only, phrase-level only (adversary ruling 2026-08-29): a multi-word candidate is
+    # Build-time only, phrase-level only (ruling of a refuting review, 2026-08-29): a multi-word candidate is
     # skipped when it is a known false-positive phrase, or appears verbatim in the frozen doctrine
     # template. Single tokens are never filtered here and compare.py's derived-token checks are
     # untouched, because the template quotes James by name and a surname filter would have let a
@@ -473,8 +473,8 @@ def main():
                 f"# Answer key (from the production medic's ledger)\n\nClass: {kclass}\n\nLedger note (verbatim, redacted):\n- {at[11:19]} {r['action']} | {r.get('note','')}\n")
             # split: cases minted before the 2026-08-29 instrument/doctrine tune are the DEV set
             # (they were seen while fixing the harness). Everything minted after is HOLDOUT and is
-            # the only thing the promotion gate may read (temporal-split discipline, research
-            # 2026-08-29: a set used for tuning is spent after a handful of iterations).
+            # the only thing the promotion gate may read (temporal-split discipline, a research
+            # pass on 2026-08-29: a set used for tuning is spent after a handful of iterations).
             case_split = split_for(slug)
             json.dump({'stage': stage, 'script': script or '',
                        'log': (script.replace('.sh','') + '.log') if script else '',

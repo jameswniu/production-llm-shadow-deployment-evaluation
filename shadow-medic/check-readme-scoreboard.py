@@ -112,6 +112,88 @@ def check_svg(live):
     return drift
 
 
+BADGE_LABELS = ("incidents", "held_out", "ops", "render", "tests")
+BADGE_RE = re.compile(r"https://img\.shields\.io/badge/([A-Za-z_]+)-([^-\s)\"]+)-[A-Za-z0-9]+")
+
+
+def _decode_badge(v):
+    return v.replace("_", " ").replace("%2F", "/").replace("%C2%B7", "\u00b7")
+
+
+def live_badge_values(live):
+    """-> {label: callable returning the live value}. Lazy, so the ten second test run only happens if needed."""
+    tools = HERE.parent / "tools"
+    sys.path.insert(0, str(tools))
+    import facts  # noqa: E402
+    rows, f = facts.load()
+    held = [r for r in rows if r["split"] == "holdout"]
+
+    def tests():
+        # Run under an empty home with no fleet runner, so the checks that need this machine's private
+        # fleet skip here exactly as they do in CI, and the count is the same everywhere.
+        import os
+        import tempfile
+        env = {k: v for k, v in os.environ.items() if k != "SHADOW_RUNNER"}
+        with tempfile.TemporaryDirectory() as home:
+            env["HOME"] = home
+            r = subprocess.run(["bash", "run-tests.sh"], cwd=HERE, capture_output=True, text=True, env=env)
+        return str(sum(int(n) for n in re.findall(r"(\d+) passed", r.stdout + r.stderr)))
+
+    return {
+        "incidents": lambda: str(facts.case_count()),
+        "held_out": lambda: str(len(held)),
+        "ops": lambda: f"{f['ops']['agreements']}/{f['ops']['scored']}",
+        "render": lambda: f"{f['render']['agreements']}/{f['render']['scored']}",
+        "tests": tests,
+    }
+
+
+def check_badges(live):
+    """Compare shields.io badge values in the README with live values. Absent labels are skipped."""
+    found = {}
+    counts = {}
+    for label, value in BADGE_RE.findall(README.read_text()):
+        if label in BADGE_LABELS:
+            counts[label] = counts.get(label, 0) + 1
+            if label not in found:
+                found[label] = _decode_badge(value)
+    drift = 0
+    for label in BADGE_LABELS:
+        if counts.get(label, 0) > 1:
+            drift += 1
+            print(f"DRIFT [badge {label}] appears {counts[label]} times in the README")
+    live_vals = live_badge_values(live) if found else {}
+    for label in BADGE_LABELS:
+        if label not in found:
+            print(f"skip [badge {label}] not in the README")
+            continue
+        want, got = found[label], live_vals[label]()
+        if want == got:
+            print(f"ok [badge {label}] {got}")
+        else:
+            drift += 1
+            print(f"DRIFT [badge {label}] README says {want}, live is {got}")
+    return drift
+
+
+def check_figures():
+    """Run every generator with --check; any non-zero exit is drift."""
+    tools = HERE.parent / "tools"
+    scripts = sorted(tools.glob("render_*.py")) + [tools / "verdicts_table.py"]
+    drift = 0
+    for sc in scripts:
+        if not sc.exists():
+            continue
+        r = subprocess.run([sys.executable, str(sc), "--check"], capture_output=True, text=True)
+        if r.returncode:
+            drift += 1
+            print(f"DRIFT [generator {sc.name}] exited {r.returncode}")
+            print(r.stdout[-1500:])
+        else:
+            print(f"ok [generator {sc.name}]")
+    return drift
+
+
 def parse_live(lines):
     """-> (agreements, n, S) from a family's two summary lines."""
     a = re.search(r"agreement\s+(\d+)/(\d+)", " ".join(lines))
@@ -154,6 +236,8 @@ def main():
         else:
             print(f"ok [{family}] {len(want)} lines match")
     drift += check_svg(live)
+    drift += check_badges(live)
+    drift += check_figures()
     if drift:
         print(f"\n{drift} claim(s) stale. Update the README scoreboard and the axis figure, then re-run.")
         return 1

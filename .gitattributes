@@ -1,0 +1,4 @@
+media/*.svg linguist-generated
+media/*.gif binary
+media/*.mp4 binary
+docs/verdicts.md linguist-generated

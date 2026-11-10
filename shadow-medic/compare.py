@@ -2,17 +2,18 @@
 """compare.py: redaction, leak checks and scoring for shadow-medic.
 
 shadow-medic is this folder's harness that replays the medic's diagnoses against a challenger model.
-The medic is the automated worker that diagnoses red alerts from the fleet, the scheduled jobs in
-claude-os (the private repo of automation stages this harness studies), and its ledger is the log of
-every action it took. Each job is a stage, named by a letter or Roman numeral (K, Q, XVII), and its
+The medic is the trusted Claude agent that diagnoses failed scheduled jobs, the fleet (the private
+fleet of scheduled jobs this harness studies), and the medic's ledger is the log of every action it
+took. Each job is a stage, named by a letter or Roman numeral (K, Q, XVII), and its
 script and log carry that id (K-cswap-auto.sh, K-cswap-auto.log). run-stage.sh, the runner that starts
 every stage, writes one line per run to run.log. A case is one past alert frozen as files: the run.log
 window around it, the stage's own log, a code excerpt, and the medic's note as the answer key.
 harvest.py builds the cases. A case's roster is the list of names harvest found in its text, each
 mapped to a placeholder such as [person1]. This file redacts a case against its roster, checks every
 file and the built prompt for anything left (the preflight run-shadow.sh runs before a prompt leaves the
-machine), and scores the challenger against the answer keys. A comment that cites the adversary marks
-a hole an adversarial reviewer found and the fix that closed it.
+machine), and scores the challenger against the answer keys. A comment that cites a refuting review
+marks a hole an adversarial reviewer, a second model told to refute each change, found and the fix
+that closed it.
 
   compare.py compare <case-dir> <results...>    each shadow verdict beside the answer key; exit 1 on any miss or missing verdict
   compare.py check   [--structural-only] <case-dir> [more files...]
@@ -52,7 +53,7 @@ COMMON = {'goes', 'lee', 'hope', 'lincoln', 'reed', 'may', 'march', 'will', 'gra
 # redacts exactly as before, so a real surname that spells a status word is still caught, and a forged
 # slot holding any other word, or no runner stage id, protects nothing. The set is fixed on purpose.
 # Learning words from the scanned text let one forged line exempt a real surname for the whole file,
-# and a bare " stage=" let a stage-log field like "stage=applicant" pass (adversary, 2026-10-17). The
+# and a bare " stage=" let a stage-log field like "stage=applicant" pass (a refuting review on 2026-10-17 found this). The
 # phrase pass is untouched, so a whole roster name redacts everywhere. A word the runner learns later
 # is over-redacted until it is added here, the safe direction, and test_roster_status_words.py fails
 # when run-stage.sh prints a word this set lacks.
@@ -305,7 +306,7 @@ _dict_cache = []
 
 def _dictionary():
     """The system word list, lowercase entries only, or an empty set where there is none (a CI runner).
-    The same common-word oracle claude-os's pii-patterns.sh uses for its roster: a name absent from it
+    The same common-word list the fleet's own redaction script uses for its roster: a name absent from it
     is distinctive enough to redact in lowercase, one present (ward, price, robin) is left alone there."""
     if not _dict_cache:
         try:
@@ -373,8 +374,8 @@ def _token_patterns(text, mp):
     # text alone used to decide, so a name such an entry holds, written once on its own in lowercase,
     # made itself a word and went out in every casing (adversary, 2026-10-18). Only the system word
     # list counts here, never COMMON: COMMON lists words that are also names (max, lee, may), and an
-    # entry written all in lowercase gives no capital to tell the person from the word (adversary,
-    # 2026-10-18).
+    # entry written all in lowercase gives no capital to tell the person from the word (a refuting
+    # review on 2026-10-18 found this).
     capped = {v for n in mp if n != n.lower() for t in re.split(r'\s+', n) for v in (t, _POSSESSIVE.sub('', t))}
     inlist = lambda x: bool(dictionary) and _in_dictionary(x.lower(), dictionary)
     keep = lambda x: x in capped or not (x.lower() in words and inlist(x))
@@ -638,8 +639,8 @@ def cmd_scoreboard(args):
     for case in sorted((root / 'cases').iterdir()):
         if not (case / 'answer-key.md').exists():
             continue
-        # The GATE reads holdout only: a set used to tune the instrument is spent (research
-        # 2026-08-29). --split dev shows the tuning set, --split all shows everything.
+        # The GATE reads holdout only: a set used to tune the instrument is spent (a research
+        # pass on 2026-08-29 found the same). --split dev shows the tuning set, --split all shows everything.
         meta_p = case / 'meta.json'
         split = json.loads(meta_p.read_text()).get('split', 'dev') if meta_p.exists() else 'dev'
         if want_split != 'all' and split != want_split:
@@ -671,7 +672,7 @@ def cmd_scoreboard(args):
         print(f"\n[{want_split}] nothing scored yet ({len(rows)} case(s) pending); gate cannot read.")
         return 1
     lo, hi = wilson(k, n)
-    # Wald SPRT on Bernoulli agreement (research 2026-08-29: scan + refute concur on the form)
+    # Wald SPRT on Bernoulli agreement (a research pass on 2026-08-29, with a refuting second check, agreed on this form)
     la = math.log(beta / (1 - alpha)); lb = math.log((1 - beta) / alpha)
     s = k * math.log(p1 / p0) + (n - k) * math.log((1 - p1) / (1 - p0))
     decision = 'PROMOTE (H1)' if s >= lb else 'REJECT (H0)' if s <= la else 'CONTINUE'
