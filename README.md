@@ -13,7 +13,9 @@
 
 </div>
 
-**ShadowOS swaps the model behind a production AI workflow on evidence, not faith.** A challenger model works every real incident in the shadow of the model you trust, and a sequential test decides when it has earned the job. Across 100 held-out incidents from my own fleet of scheduled jobs, it matched the trusted model on 52 of 62 ops incidents and 26 of 38 render incidents. The test says keep shadowing on ops and reject on render.
+**ShadowOS swaps the model behind a production AI workflow on evidence, not faith.**
+
+A challenger model works every real incident in the shadow of the model you trust, and a sequential test decides when it has earned the job. Across 100 held-out incidents from my own fleet of scheduled jobs, it matched the trusted model on 52 of 62 ops incidents and 26 of 38 render incidents. The test says keep shadowing on ops and reject on render.
 
 ## Where the gate stands
 

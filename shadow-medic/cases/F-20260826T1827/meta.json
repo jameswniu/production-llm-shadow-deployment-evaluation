@@ -1,0 +1,8 @@
+{
+ "stage": "F",
+ "script": "F-aj-holoblack.sh",
+ "log": "F-aj-holoblack.log",
+ "split": "dev",
+ "runner_evidence": true,
+ "split_basis": "present in tuning commit 626de28"
+}

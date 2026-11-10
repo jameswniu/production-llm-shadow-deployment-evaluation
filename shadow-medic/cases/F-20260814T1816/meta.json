@@ -1,0 +1,8 @@
+{
+ "stage": "F",
+ "script": "F-aj-holoblack.sh",
+ "log": "F-aj-holoblack.log",
+ "split": "holdout",
+ "runner_evidence": false,
+ "split_basis": "minted after the tune (2026-08-29 PT)"
+}
