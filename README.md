@@ -82,7 +82,7 @@ flowchart TD
 
 - **Every verdict ships, so every number reruns.** The scoreboard reads three fields per incident, the medic's class, the split and the challenger's class.
 - **8 incidents ship with full logs**, all video render jobs, so you can rerun a model on them. Seven of them are among the 100 held-out incidents the gate scored, so most scored verdicts are stubs. Paths, private project names, links, emails and long ids are swapped for placeholders like `[project]` and `[link]`.
-- **The other 122 come from jobs that act on my personal accounts.** Only their three fields ship, each with the SHA-256 of the private original.
+- **The other 122 stay private.** 77 come from jobs that act on my personal accounts, and the other 45 were not cleared line by line for release. Only their three fields ship, each with the SHA-256 of the private original.
 - **The verdicts were made on the logs before that extra scrub**, so a rerun reads slightly different text.
 - **CI checks shipped logs for emails, phone numbers, ids and links, but not for names**, because a name check needs each incident's private roster. Names were redacted when each incident was frozen, and every shipped log was read line by line before release.
 

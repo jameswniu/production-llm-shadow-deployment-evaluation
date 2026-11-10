@@ -11,6 +11,8 @@ MECHANICAL, annotated -> JUDGMENT). Inputs are auto-redacted with a per-case
 roster; a case that fails the leak check or has empty evidence is skipped
 loudly, never written half-made.
 """
+# A comment that cites the adversary marks a hole that an adversarial reviewer, a second model told to
+# refute each change, found here, and the fix that closed it.
 import json
 import os, os, re, sys, subprocess, pathlib, datetime, tempfile, shutil
 
