@@ -38,6 +38,8 @@ flowchart TB
         D["Incident folder<br/>logs + answer key"] --> E["run-shadow.sh<br/>challenger, same logs, no tools"] --> F["compare.py<br/>agreement and the gate, per family"]
     end
     R1 --> R2
+    style R1 fill:none,stroke-width:0px
+    style R2 fill:none,stroke-width:0px
     style A fill:#171c24,color:#e6e9ee,stroke:#e6e9ee,stroke-width:2px
     style B fill:#171c24,color:#e6e9ee,stroke:#8b949e,stroke-width:2px,stroke-dasharray:6 4
     style C fill:#171c24,color:#e6e9ee,stroke:#7f9bb8,stroke-width:2px
