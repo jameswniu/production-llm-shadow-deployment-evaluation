@@ -1,0 +1,35 @@
+Sun Aug 16 23:34:51 PDT 2026: [aj-holoblack] rendering glass-native holoblack clip (model claude-sonnet-5, budget $20.0)
+Sun Aug 16 23:34:56 PDT 2026: [aj-holoblack] re-coupled: worker authored 110 words, person-shifted
+The clip is delivered.
+
+**[redacted]-2334.mp4** rendered and saved to `~/[project]/renders/[redacted]-2334.mp4` (23.29s, avatar_iii, single take, byte-verified).
+
+Summary:
+- **Look**: fresh Personal Model generate, cobalt-blue button shirt + soft braid, seated, pure black void, whisper-warm crown rim only. Two candidates drawn; A failed the still-alien gate (alien_hue 53.34), B was clean (0.32) and passed crop/body/panel/identity gates (identity 0.6733, well above floor). Registered and pinned.
+- **Script**: worker-authored via `aj-recouple.sh` context measured 46.7s, more than double target — trimmed from the end only (dropped the last two sentences) to 22.7s, then settle-padded to 23.3s. STT read-back clean, no proper-noun issues.
+- **Void stability gate**: UNSTABLE but worst_transitions=3 (below the ≥4 threshold needed to unlock a second take), so the single take shipped as final per the hard limit's own exception boundary.
+- Delivered to the file path only — no Slack, Photos, or other destination, no crop/subtitles/post-effects, per explicit instruction.
+
+Full reasoning and gate readings logged to `twin-prefs-ledger.md`.
+Sun Aug 16 23:58:07 PDT 2026: [aj-holoblack] look generations this run: 1 (ceiling 3)
+Sun Aug 16 23:58:07 PDT 2026: [aj-holoblack] glass leg: [redacted]-2334.mp4 -> void matte + quilt + cast
+2026-08-16 23:58:12 [glass] crop anchor: x0=140 (auto, silhouette): {"x0": 140, "w": 1080, "target_w": 810, "frames": 3, "detail": [{"t": 1.0, "extent": [93, 971], "mass": 545.9, "x0": 141, "fit": false}, {"t": 4.0, "extent": [96, 971], "mass": 545.0, "x0": 140, "fit": false}, {"t": 8.0, "extent": [83, 965], "mass": 535.1, "x0": 130, "fit": false}]}
+2026-08-16 23:58:14 [glass] hands gate: UNKNOWN
+2026-08-16 23:58:16 [glass] CROP GATE FAIL: COLD RIM ON A VOID
+  t=1.0s COLD RIM ON A VOID: the rim light is hue 216 at saturation 0.58, outside the warm 10 to 65 band. Every rim in his void goldens is warm; re-roll with warm or neutral rim wording
+  t=4.0s COLD RIM ON A VOID: the rim light is hue 217 at saturation 0.55, outside the warm 10 to 65 band. Every rim in his void goldens is warm; re-roll with warm or neutral rim wording
+  t=8.0s COLD RIM ON A VOID: the rim light is hue 216 at saturation 0.56, outside the warm 10 to 65 band. Every rim in his void goldens is warm; re-roll with warm or neutral rim wording
+2026-08-16 23:58:16 [glass] FALLBACK (crop gate FAIL: COLD RIM ON A VOID): casting golden0 champion
+segment: 676 frames / 27.040000s = 25.000000 fps, x1, round 676f/27.040000s, voice from nobg-01-no-fuzz-lo68-0457_qs7x11a0.75-vloop.mp4
+  input is already a vloop; nothing to build
+  CASTING nobg-01-no-fuzz-lo68-0457_qs7x11a0.75-vloop.mp4  (per-play sync)
+pacing video at 25.00 fps (caller-supplied)
+  cast took 3.81s
+2026-08-16 23:58:20 [glass] champion cast up
+Sun Aug 16 23:58:20 PDT 2026: [aj-holoblack] degraded: 2026-08-16 23:58:16 [glass] FALLBACK (crop gate FAIL: COLD RIM ON A VOID): casting golden0 champion
+Sun Aug 16 23:58:21 PDT 2026: [aj-holoblack] pinged claudeos DM: :red_circle: stage F: the holoblack did NOT reach the glass
+Sun Aug 16 23:58:21 PDT 2026: [aj-holoblack] stage exited rc=2 during phase: glass leg (matte + depth + quilt + cast)
+Sun Aug 16 23:58:21 PDT 2026: --- run-stage captured stage output (exit 2, attempt 1) ---
+ping-schema: header was not bold; wrapped the opening sentence
+Sun Aug 16 23:58:21 PDT 2026: --- end captured stage output ---
+Mon Aug 17 00:01:45 PDT 2026: [aj-holoblack] window skip (evening stage; hour 0 outside 17:00-23:59)

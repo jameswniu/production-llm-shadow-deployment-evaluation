@@ -1,0 +1,45 @@
+[depth_infer]   inferred 104/301 passes
+[depth_infer]   inferred 112/301 passes
+[depth_infer]   inferred 120/301 passes
+[depth_infer]   inferred 136/301 passes
+[depth_infer]   inferred 144/301 passes
+[depth_infer]   inferred 152/301 passes
+[depth_infer]   inferred 160/301 passes
+[depth_infer]   inferred 176/301 passes
+[depth_infer]   inferred 184/301 passes
+[depth_infer]   inferred 192/301 passes
+[depth_infer]   inferred 200/301 passes
+[depth_infer]   inferred 216/301 passes
+[depth_infer]   inferred 224/301 passes
+[depth_infer]   inferred 232/301 passes
+[depth_infer]   inferred 240/301 passes
+[depth_infer]   inferred 256/301 passes
+[depth_infer]   inferred 264/301 passes
+[depth_infer]   inferred 272/301 passes
+[depth_infer]   inferred 280/301 passes
+[depth_infer]   inferred 296/301 passes
+[depth_infer]   inferred 301/301 passes
+[depth_infer] inference done in 108.1s (batch=8, stride=2, passes=301/600 frames)
+[depth_infer] global normalize range: [27.0959, 437.5586] (p1.0/p99.0 over the whole clip)
+[depth_infer] wrote 600 depth frames -> ~/[project]/state/depth-work/[redacted]-1745.6065/depth
+[depth] encoding depth frames -> ~/[project]/renders/[redacted]-1745-depth.mp4 (video only, no audio, source fps)
+[depth] done -> ~/[project]/renders/[redacted]-1745-depth.mp4
+2026-08-20 18:12:44 [glass] matte: SKIPPED, source is already a clean black plate (matting it would only cut her hair)
+2026-08-20 18:12:44 [glass] void stability (matted): UNSTABLE {"body_cv": 0.027, "cells_judged": 23, "worst_transitions": 7, "frames": 600, "fps": 25.0, "verdict": "UNSTABLE", "reason": "1 region(s) cycle while her body stays flat; worst r0c4 x4", "flagged": [{"cell": "r0c4", "transitions": 4, "peak": 126.5}], "corner_luma": 0.0}
+2026-08-20 18:12:44 [glass] HOLD: parts of her flicker in and out of existence on the matted clip ({"body_cv": 0.027, "cells_judged": 23, "worst_transitions": 7, "frames": 600, "fps": 25.0, "verdict": "UNSTABLE", "reason": "1 region(s) cycle while her body stays flat; worst r0c4 x4", "flagged": [{"cell": "r0c4", "transitions": 4, "peak": 126.5}], "corner_luma": 0.0}); nothing cast, panel keeps its clip (GLASS_STABILITY_SOFT=1 overrides)
+Thu Aug 20 18:12:44 PDT 2026: [aj-holoblack] degraded: 2026-08-20 18:12:44 [glass] matte: SKIPPED, source is already a clean black plate (matting it would only cut her hair)
+Thu Aug 20 18:12:45 PDT 2026: [aj-holoblack] pinged claudeos DM: :red_circle: stage F: the glass was NOT updated
+Thu Aug 20 18:12:45 PDT 2026: [aj-holoblack] stage exited rc=2 during phase: glass leg (matte + depth + quilt + cast)
+Thu Aug 20 18:12:45 PDT 2026: --- run-stage captured stage output (exit 2, attempt 1) ---
+ping-schema: header was not bold; wrapped the opening sentence
+ping-schema: body is 933 chars of unstructured prose, no bullets
+Thu Aug 20 18:12:45 PDT 2026: --- end captured stage output ---
+Thu Aug 20 18:14:37 PDT 2026: [aj-holoblack] rendering glass-native holoblack clip (model claude-sonnet-5, budget $20.0)
+Thu Aug 20 18:14:42 PDT 2026: [aj-holoblack] re-coupled: worker authored 83 words, person-shifted
+Render delivered. Void stability gate: **STABLE** (worst_transitions=1, well under the flicker threshold), so no second take needed.
+
+Summary:
+- **Look**: fresh Personal Model generation, 2 candidates drawn (of the 2-draw max). Winner `[id]` — amber/mustard cardigan, three-quarter turn leaning, thin gold necklace, whisper-warm crown rim, pure black void. Chosen on identity (0.6852 vs runner-up's 0.6629, a real gap). Both candidates cleared still-alien, watermark, crop_guard, body_guard, and panel_gate before the comparison. Wardrobe/hair rotated fresh vs the last 3 holoblack renders (cobalt shirt, rust blazer, sapphire knit — all avoided). Pins refreshed, taste registered and pair archived.
+- **Script**: used verbatim, trimmed from the end only (dropped the AJ-brief-posting and closing sentences) to bring narration from 34.0s down to 18.4s median-of-3 — within the 15-25s target. STT read-back clean, no proper-noun mismatches.
+- **Render**: single `avatar_iii` take (1 credit), 1080p/1:1/cover, black background, ~7.2min for 18.97s. Already square out of HeyGen, no crop. Watch-gate clean on 3 frames (mouth animated mid-word, natural smile, no color cast on skin, hands out of frame throughout — safe by construction).
+- **Delivered ONLY** to `~/[project]/renders/[redacted]-1814.mp4` (byte-verified, no prior file at that path). [person1]/Photos/cast/crop/subtitles/post-effects, per instruction.

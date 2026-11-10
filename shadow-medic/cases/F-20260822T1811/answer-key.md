@@ -1,0 +1,6 @@
+# Answer key (from the production medic's ledger)
+
+Class: MECHANICAL
+
+Ledger note (verbatim, redacted):
+- 18:11:05 rerun | PRIMARY of the single 17:45:05 stage F fault. Cleared-blocker/re-roll class: the render worker yielded on a wait under `claude -p` (its own log line: 'I'll wait for the background timer notification before checking again'), ending the run with rc=0 and no file while the HeyGen render was still alive with status 'processing'. The stage prompt already forbids this as HARD LIMIT 3, so the guardrail exists and the worker walked past it once; not a missing rule, so no code or skill edit is mine to make. Nothing was exhausted: 1 look generation of ceiling 3, 1207s of the 2400s AJ_HOLO_TIMEOUT wall clock, and the last green run took 2339s. Fired ONE detached re-run stamped by=medic, confirmed by the run.log line 'Sat Aug 22 18:10:04 PDT 2026: RUN stage=F script=F-aj-holoblack.sh attempt=1 budget_mult=1.0x by=medic'. First F re-run of the day, so 1 of the 2-per-day cap is now spent. VERIFY DEFERRED: stage F historically runs 1200-2400s, so it cannot be closed inside this cycle; the skill's own rule is not to wait on long stages. Parent left RED deliberately, with the reason stated in the 3/4 FIX reply in-thread.

@@ -1,0 +1,45 @@
+Wed Aug 26 17:59:59 PDT 2026: DONE stage=S script=S-[job].sh status=idle duration=4s attempts=1
+Wed Aug 26 18:00:02 PDT 2026: RUN stage=H script=H-ping-heal.sh attempt=1 budget_mult=1.0x
+Wed Aug 26 18:00:03 PDT 2026: RUN stage=P script=P-promo-purge.sh attempt=1 budget_mult=1.0x
+Wed Aug 26 18:00:12 PDT 2026: DONE stage=P script=P-promo-purge.sh status=ok duration=9s attempts=1
+Wed Aug 26 18:00:46 PDT 2026: RUN stage=K script=K-cswap-auto.sh attempt=1 budget_mult=1.0x
+Wed Aug 26 18:00:48 PDT 2026: IDLE stage=K idle (exit 79: config valid, nothing to do this cycle)
+Wed Aug 26 18:00:48 PDT 2026: DONE stage=K script=K-cswap-auto.sh status=idle duration=2s attempts=1
+Wed Aug 26 18:04:59 PDT 2026: RUN stage=S script=S-[job].sh attempt=1 budget_mult=1.0x
+Wed Aug 26 18:05:03 PDT 2026: IDLE stage=S idle (exit 79: config valid, nothing to do this cycle)
+Wed Aug 26 18:05:03 PDT 2026: DONE stage=S script=S-[job].sh status=idle duration=4s attempts=1
+Wed Aug 26 18:05:48 PDT 2026: RUN stage=K script=K-cswap-auto.sh attempt=1 budget_mult=1.0x
+Wed Aug 26 18:05:49 PDT 2026: IDLE stage=K idle (exit 79: config valid, nothing to do this cycle)
+Wed Aug 26 18:05:50 PDT 2026: DONE stage=K script=K-cswap-auto.sh status=idle duration=2s attempts=1
+Wed Aug 26 18:09:28 PDT 2026: DONE stage=H script=H-ping-heal.sh status=ok duration=565s attempts=1
+Wed Aug 26 18:10:04 PDT 2026: RUN stage=S script=S-[job].sh attempt=1 budget_mult=1.0x
+Wed Aug 26 18:10:07 PDT 2026: IDLE stage=S idle (exit 79: config valid, nothing to do this cycle)
+Wed Aug 26 18:10:08 PDT 2026: DONE stage=S script=S-[job].sh status=idle duration=3s attempts=1
+Wed Aug 26 18:10:50 PDT 2026: RUN stage=K script=K-cswap-auto.sh attempt=1 budget_mult=1.0x
+Wed Aug 26 18:10:52 PDT 2026: IDLE stage=K idle (exit 79: config valid, nothing to do this cycle)
+Wed Aug 26 18:10:52 PDT 2026: DONE stage=K script=K-cswap-auto.sh status=idle duration=2s attempts=1
+Wed Aug 26 18:15:08 PDT 2026: RUN stage=S script=S-[job].sh attempt=1 budget_mult=1.0x
+Wed Aug 26 18:15:12 PDT 2026: IDLE stage=S idle (exit 79: config valid, nothing to do this cycle)
+Wed Aug 26 18:15:12 PDT 2026: DONE stage=S script=S-[job].sh status=idle duration=4s attempts=1
+Wed Aug 26 18:15:53 PDT 2026: RUN stage=K script=K-cswap-auto.sh attempt=1 budget_mult=1.0x
+Wed Aug 26 18:15:56 PDT 2026: IDLE stage=K idle (exit 79: config valid, nothing to do this cycle)
+Wed Aug 26 18:15:56 PDT 2026: DONE stage=K script=K-cswap-auto.sh status=idle duration=3s attempts=1
+Wed Aug 26 18:20:12 PDT 2026: RUN stage=S script=S-[job].sh attempt=1 budget_mult=1.0x
+Wed Aug 26 18:20:56 PDT 2026: RUN stage=K script=K-cswap-auto.sh attempt=1 budget_mult=1.0x
+Wed Aug 26 18:20:59 PDT 2026: IDLE stage=K idle (exit 79: config valid, nothing to do this cycle)
+Wed Aug 26 18:20:59 PDT 2026: DONE stage=K script=K-cswap-auto.sh status=idle duration=3s attempts=1
+Wed Aug 26 18:21:15 PDT 2026: RETRY stage=7 attempt=2 budget_mult=1.5x of 4 attempts
+Wed Aug 26 18:21:45 PDT 2026: RUN stage=7 script=7-deploy.sh attempt=2 budget_mult=1.5x
+Wed Aug 26 18:22:08 PDT 2026: RUN stage=H script=H-ping-heal.sh attempt=1 budget_mult=1.0x
+Wed Aug 26 18:22:08 PDT 2026: PERM stage=F permanent failure (exit 2), not retrying
+Wed Aug 26 18:22:08 PDT 2026: DONE stage=F script=F-aj-holoblack.sh status=error duration=2225s attempts=1
+{"ok":true,"channel":"[redacted]","ts":"[redacted]","message":{"subtype":"bot_message","text":":red_circle: *Stage F: Landed in error.*\nF-aj-holoblack.sh exited 2 after 1 attempt(s), 2225s.\n\n\u2022 *Script:* F-aj-holoblack.sh.\n\u2022 *Exit code:* 2 after 1 attempt(s).\n\u2022 *Ran for:* 2225s.\n\u2022 *Dashboard:* <http:\/\/localhost:2468>\n\u2022 *Logs:* ~\/claude-os\/output\/run.log","username":"Stage-Watch","icons":{"emoji":":rotating_light:"},"type":"message","ts":"[redacted]","bot_id":"[redacted]","app_id":"[slack-id]","blocks":[{"type":"rich_text","block_id":"v0gQW","elements":[{"type":"rich_text_section","elements":[{"type":"emoji","name":"red_circle","unicode":"1f534"},{"type":"text","text":" "},{"type":"text","text":"Stage F: Landed in error.","style":{"bold":true}},{"type":"text","text":"\nF-aj-holoblack.sh exited 2 after 1 attempt(s), 2225s.\n\n\u2022 "},{"type":"text","text":"Script:","style":{"bold":true}},{"type":"text","text":" F-aj-holoblack.sh.\n\u2022 "},{"type":"text","text":"Exit code:","style":{"bold":true}},{"type":"text","text":" 2 after 1 attempt(s).\n\u2022 "},{"type":"text","text":"Ran for:","style":{"bold":true}},{"type":"text","text":" 2225s.\n\u2022 "},{"type":"text","text":"Dashboard:","style":{"bold":true}},{"type":"text","text":" "},{"type":"link","url":"http:\/\/localhost:2468"},{"type":"text","text":"\n\u2022 "},{"type":"text","text":"Logs:","style":{"bold":true}},{"type":"text","text":" ~\/claude-os\/output\/run.log"}]}]}]}}
+Wed Aug 26 18:24:38 PDT 2026: RUN stage=F script=F-aj-holoblack.sh attempt=1 budget_mult=1.0x by=medic
+Wed Aug 26 18:25:59 PDT 2026: RUN stage=K script=K-cswap-auto.sh attempt=1 budget_mult=1.0x
+Wed Aug 26 18:26:03 PDT 2026: DONE stage=K script=K-cswap-auto.sh status=ok duration=4s attempts=1
+Wed Aug 26 18:27:16 PDT 2026: DONE stage=S script=S-[job].sh status=ok duration=424s attempts=1
+Wed Aug 26 18:28:22 PDT 2026: DONE stage=H script=H-ping-heal.sh status=ok duration=374s attempts=1
+Wed Aug 26 18:28:35 PDT 2026: RUN stage=H script=H-ping-heal.sh attempt=1 budget_mult=1.0x
+Wed Aug 26 18:28:48 PDT 2026: PERM stage=L permanent failure (exit 2), not retrying
+Wed Aug 26 18:28:48 PDT 2026: DONE stage=L script=L-[job].sh status=error duration=2195s attempts=1
+{"ok":true,"channel":"[redacted]","ts":"[redacted]","message":{"subtype":"bot_message","text":":red_circle: *Stage L: STILL in error (repeat, throttled to 1 per 3h).*\nL-[job].sh exited 2 after 1 attempt(s), 2195s.\n\n\u2022 *Script:* L-[job].sh.\n\u2022 *Exit code:* 2 after 1 attempt(s).\n\u2022 *Ran for:* 2195s.\n\u2022 *Dashboard:* <http:\/\/localhost:2468>\n\u2022 *Logs:* ~\/claude-os\/output\/run.log","username":"Stage-Watch","icons":{"emoji":":rotating_light:"},"type":"message","ts":"[redacted]","bot_id":"[redacted]","app_id":"[slack-id]","blocks":[{"type":"rich_text","block_id":"GMc","elements":[{"type":"rich_text_section","elements":[{"type":"emoji","name":"red_circle","unicode":"1f534"},{"type":"text","text":" "},{"type":"text","text":"Stage L: STILL in error (repeat, throttled to 1 per 3h).","style":{"bold":true}},{"type":"text","text":"\nL-[job].sh exited 2 after 1 attempt(s), 2195s.\n\n\u2022 "},{"type":"text","text":"Script:","style":{"bold":true}},{"type":"text","text":" L-[job].sh.\n\u2022 "},{"type":"text","text":"Exit code:","style":{"bold":true}},{"type":"text","text":" 2 after 1 attempt(s).\n\u2022 "},{"type":"text","text":"Ran for:","style":{"bold":true}},{"type":"text","text":" 2195s.\n\u2022 "},{"type":"text","text":"Dashboard:","style":{"bold":true}},{"type":"text","text":" "},{"type":"link","url":"http:\/\/localhost:2468"},{"type":"text","text":"\n\u2022 "},{"type":"text","text":"Logs:","style":{"bold":true}},{"type":"text","text":" ~\/claude-os\/output\/run.log"}]}]}]}}

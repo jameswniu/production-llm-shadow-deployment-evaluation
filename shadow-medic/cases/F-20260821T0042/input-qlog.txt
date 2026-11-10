@@ -1,0 +1,45 @@
+[depth_infer]   inferred 176/451 passes
+[depth_infer]   inferred 184/451 passes
+[depth_infer]   inferred 192/451 passes
+[depth_infer]   inferred 200/451 passes
+[depth_infer]   inferred 216/451 passes
+[depth_infer]   inferred 224/451 passes
+[depth_infer]   inferred 232/451 passes
+[depth_infer]   inferred 240/451 passes
+[depth_infer]   inferred 256/451 passes
+[depth_infer]   inferred 264/451 passes
+[depth_infer]   inferred 272/451 passes
+[depth_infer]   inferred 280/451 passes
+[depth_infer]   inferred 296/451 passes
+[depth_infer]   inferred 304/451 passes
+[depth_infer]   inferred 312/451 passes
+[depth_infer]   inferred 320/451 passes
+[depth_infer]   inferred 336/451 passes
+[depth_infer]   inferred 344/451 passes
+[depth_infer]   inferred 352/451 passes
+[depth_infer]   inferred 360/451 passes
+[depth_infer]   inferred 376/451 passes
+[depth_infer]   inferred 384/451 passes
+[depth_infer]   inferred 392/451 passes
+[depth_infer]   inferred 400/451 passes
+[depth_infer]   inferred 416/451 passes
+[depth_infer]   inferred 424/451 passes
+[depth_infer]   inferred 432/451 passes
+[depth_infer]   inferred 440/451 passes
+[depth_infer]   inferred 451/451 passes
+[depth_infer] inference done in 107.3s (batch=8, stride=2, passes=451/901 frames)
+[depth_infer] global normalize range: [57.8526, 364.4204] (p1.0/p99.0 over the whole clip)
+[depth_infer] wrote 901 depth frames -> ~/[project]/state/depth-work/[redacted]-0011.31599/depth
+[depth] encoding depth frames -> ~/[project]/renders/[redacted]-0011-depth.mp4 (video only, no audio, source fps)
+[depth] done -> ~/[project]/renders/[redacted]-0011-depth.mp4
+2026-08-21 00:36:48 [glass] matte: SKIPPED, source is already a clean black plate (matting it would only cut her hair)
+2026-08-21 00:36:49 [glass] void stability (matted): UNSTABLE {"body_cv": 0.0229, "cells_judged": 24, "worst_transitions": 9, "frames": 901, "fps": 25.0, "verdict": "UNSTABLE", "reason": "1 region(s) cycle while her body stays flat; worst r1c4 x9", "flagged": [{"cell": "r1c4", "transitions": 9, "peak": 112.9}], "corner_luma": 0.4}
+2026-08-21 00:36:49 [glass] HOLD: parts of her flicker in and out of existence on the matted clip ({"body_cv": 0.0229, "cells_judged": 24, "worst_transitions": 9, "frames": 901, "fps": 25.0, "verdict": "UNSTABLE", "reason": "1 region(s) cycle while her body stays flat; worst r1c4 x9", "flagged": [{"cell": "r1c4", "transitions": 9, "peak": 112.9}], "corner_luma": 0.4}); nothing cast, panel keeps its clip (GLASS_STABILITY_SOFT=1 overrides)
+Fri Aug 21 00:36:49 PDT 2026: [aj-holoblack] degraded: 2026-08-21 00:36:48 [glass] matte: SKIPPED, source is already a clean black plate (matting it would only cut her hair)
+Fri Aug 21 00:36:49 PDT 2026: [aj-holoblack] pinged claudeos DM: :red_circle: stage F: the glass was NOT updated
+Fri Aug 21 00:36:49 PDT 2026: [aj-holoblack] stage exited rc=2 during phase: glass leg (matte + depth + quilt + cast)
+Fri Aug 21 00:36:49 PDT 2026: --- run-stage captured stage output (exit 2, attempt 1) ---
+ping-schema: header was not bold; wrapped the opening sentence
+ping-schema: body is 935 chars of unstructured prose, no bullets
+Fri Aug 21 00:36:49 PDT 2026: --- end captured stage output ---
+Fri Aug 21 00:38:14 PDT 2026: [aj-holoblack] window skip (evening stage; hour 0 outside 17:00-23:59)

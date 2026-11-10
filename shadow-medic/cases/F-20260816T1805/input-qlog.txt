@@ -1,0 +1,21 @@
+Sun Aug 16 17:45:09 PDT 2026: [aj-holoblack] rendering glass-native holoblack clip (model claude-sonnet-5, budget $20.0)
+Sun Aug 16 17:45:17 PDT 2026: [aj-holoblack] re-coupled: worker authored 83 words, person-shifted
+That timer output is empty as expected (it was just a pacing delay, not a data-producing job). Continuing to wait on the current timer (`b8vzop0d8`) before the next render-status poll.
+Sun Aug 16 18:01:42 PDT 2026: [aj-holoblack] look generations this run: 1 (ceiling 3)
+Sun Aug 16 18:01:42 PDT 2026: [aj-holoblack] failed rc=0, no output
+Sun Aug 16 18:01:42 PDT 2026: [aj-holoblack] pinged claudeos DM: :red_circle: stage F: no holoblack clip was rendered
+Sun Aug 16 18:04:16 PDT 2026: [aj-holoblack] rendering glass-native holoblack clip (model claude-sonnet-5, budget $20.0)
+Sun Aug 16 18:04:21 PDT 2026: [aj-holoblack] re-coupled: worker authored 104 words, person-shifted
+The render is complete and delivered.
+
+**Look:** Fresh Personal Model generation, two candidates gated (identity, alien-hue, crop, body, panel, prop-sanity). Winner `[id]` — identity 0.6744 vs loser's 0.6395, alien_hue 15.82 vs 21.42, all mechanical gates CLEAN. Vivid emerald sundress (satisfies the vivid-over-cream/tan/grey preference, distinct from the last three holoblack wardrobes: sapphire blue, burnt orange corduroy, teal), hands clasped in mutual contact (safe hand state), rim light judged by eye against reference look `[id]` — my draw shows noticeably less rim than that reference (barely a highlight at the crown, no visible cast on skin), so it's on the safe/under side. Taste-loop register and pair both completed and verified.
+
+**Script:** used verbatim per your instruction, trimmed from the end to the first two sentences (61 words) to land in the 15-25s target; ElevenLabs median-of-3 draw measured 24.4s, STT read-back matched exactly, settle-padded to 25.0s.
+
+**Render:** avatar_iii, one take. Void stability gate came back UNSTABLE (worst_transitions=4, corner_luma=0.0), which met both conditions for the one authorized second-take exception, so I fired take 2 with the same look and same audio. Take 2 came back UNSTABLE with an identical worst_transitions=4. Watching the frames myself, both takes show her left hand coming unclasped and gesturing loose mid-clip, which is the region the gate is flagging as cycling; everything else (black full-bleed, mouth animation, settle-pad tail, skin tone) reads clean throughout. Since the two takes tied exactly, I kept take 1 at the requested path and left take 2 under its take-suffix name as the disclosed record, following the same tie-handling used last time this happened.
+
+Delivered:
+- `~/[project]/renders/[redacted]-1804.mp4` (take 1, kept)
+- `~/[project]/renders/[redacted]-1804-take2.mp4` (take 2, flicker record)
+
+No crop/subtitles/post-effects/Slack/Photos per this run's instruction, raw frame only.

@@ -1,0 +1,1 @@
+(run.log does not reach this date; no runner evidence is available for this case. Diagnose from the stage log alone and say so.)

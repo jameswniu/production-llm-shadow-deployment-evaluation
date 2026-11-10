@@ -1,0 +1,45 @@
+[depth_infer] model loaded in 2.4s
+[depth_infer]   inferred 16/217 passes
+[depth_infer]   inferred 24/217 passes
+[depth_infer]   inferred 32/217 passes
+[depth_infer]   inferred 40/217 passes
+[depth_infer]   inferred 56/217 passes
+[depth_infer]   inferred 64/217 passes
+[depth_infer]   inferred 72/217 passes
+[depth_infer]   inferred 80/217 passes
+[depth_infer]   inferred 96/217 passes
+[depth_infer]   inferred 104/217 passes
+[depth_infer]   inferred 112/217 passes
+[depth_infer]   inferred 120/217 passes
+[depth_infer]   inferred 136/217 passes
+[depth_infer]   inferred 144/217 passes
+[depth_infer]   inferred 152/217 passes
+[depth_infer]   inferred 160/217 passes
+[depth_infer]   inferred 176/217 passes
+[depth_infer]   inferred 184/217 passes
+[depth_infer]   inferred 192/217 passes
+[depth_infer]   inferred 200/217 passes
+[depth_infer]   inferred 216/217 passes
+[depth_infer]   inferred 217/217 passes
+[depth_infer] inference done in 49.6s (batch=8, stride=2, passes=217/432 frames)
+[depth_infer] global normalize range: [27.3056, 434.1302] (p1.0/p99.0 over the whole clip)
+[depth_infer] wrote 432 depth frames -> ~/[project]/state/depth-work/[redacted]-2116.26447/depth
+[depth] encoding depth frames -> ~/[project]/renders/[redacted]-2116-depth.mp4 (video only, no audio, source fps)
+[depth] done -> ~/[project]/renders/[redacted]-2116-depth.mp4
+2026-08-15 21:41:04 [glass] matte: void look
+Using cache found in ~/[project]/models/torch/hub/PeterL1n_RobustVideoMatting_master
+[matte] 432 frames 1080x1080 @ 25.00fps  device=mps ratio=0.47
+[matte]   50/432
+[matte]   100/432
+[matte]   150/432
+[matte]   200/432
+[matte]   250/432
+[matte]   300/432
+[matte]   350/432
+[matte]   400/432
+[matte]   432/432
+[matte] done -> ~/[project]/renders/[redacted]-2116-nobg.mp4, ~/[project]/renders/[redacted]-2116-nobg-depth.mp4
+2026-08-15 21:41:23 [glass] void stability (matted): UNSTABLE {"body_cv": 0.0406, "cells_judged": 22, "worst_transitions": 4, "frames": 432, "fps": 25.0, "verdict": "UNSTABLE", "reason": "1 region(s) cycle while her body stays flat; worst r4c1 x4", "flagged": [{"cell": "r4c1", "transitions": 4, "peak": 418.6}], "corner_luma": 0.0}
+2026-08-15 21:41:23 [glass] HOLD: parts of her flicker in and out of existence on the matted clip ({"body_cv": 0.0406, "cells_judged": 22, "worst_transitions": 4, "frames": 432, "fps": 25.0, "verdict": "UNSTABLE", "reason": "1 region(s) cycle while her body stays flat; worst r4c1 x4", "flagged": [{"cell": "r4c1", "transitions": 4, "peak": 418.6}], "corner_luma": 0.0}); nothing cast, panel keeps its clip (GLASS_STABILITY_SOFT=1 overrides)
+Sat Aug 15 21:41:23 PDT 2026: [aj-holoblack] degraded: [matte] done -> ~/[project]/renders/[redacted]-2116-nobg.mp4, ~/[project]/renders/[redacted]-2116-nobg-depth.mp4
+Sat Aug 15 21:41:23 PDT 2026: [aj-holoblack] pinged claudeos DM: :red_circle: stage F: the glass was NOT updated

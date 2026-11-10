@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" xml:space="preserve">
+  <defs>
+    <clipPath id="cardClip">
+      <rect x="0" y="0" width="1200" height="520" rx="14"/>
+    </clipPath>
+  </defs>
+  <rect x="0" y="0" width="1200" height="520" rx="14" fill="#041c1c"/>
+  <rect x="0" y="0" width="1200" height="44" fill="#0b2f2f" clip-path="url(#cardClip)"/>
+  <circle cx="26" cy="22" r="9" fill="#d14a4a"/>
+  <circle cx="50" cy="22" r="9" fill="#FFBF00"/>
+  <circle cx="74" cy="22" r="9" fill="#34d399"/>
+  <text x="600" y="30" text-anchor="middle" font-family="SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="31" fill="#C7A96B">referee.py  S-20260825T0151</text>
+  <text x="40" y="100" font-family="SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="31" fill="#ffe6cb">$ ./referee.py S-20260825T0151</text>
+  <text x="40" y="142" font-family="SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="31" fill="#C7A96B">incumbent  JUDGMENT     challenger  MECHANICAL</text>
+  <text x="40" y="184" font-family="SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="31" fill="#C7A96B">judge      order randomized, A = challenger</text>
+  <text x="40" y="226" font-family="SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="31" fill="#34d399">judge      rules A: stage S ran clean twice after the alert</text>
+  <text x="40" y="268" font-family="SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="31" fill="#d14a4a">adversary  REFUTE: those clean exits were 3 s early-bails</text>
+  <text x="40" y="310" font-family="SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="31" fill="#d14a4a">           that never reach the guard; same fatal fired again</text>
+  <text x="40" y="394" font-family="SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="33" font-weight="600" fill="#FFBF00">UNRESOLVED (adversary refuted)  -&gt;  a human&#39;s desk</text>
+</svg>

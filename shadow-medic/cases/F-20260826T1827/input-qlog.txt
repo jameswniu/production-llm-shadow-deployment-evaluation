@@ -1,0 +1,45 @@
+[depth_infer]   inferred 192/284 passes
+[depth_infer]   inferred 200/284 passes
+[depth_infer]   inferred 216/284 passes
+[depth_infer]   inferred 224/284 passes
+[depth_infer]   inferred 232/284 passes
+[depth_infer]   inferred 240/284 passes
+[depth_infer]   inferred 256/284 passes
+[depth_infer]   inferred 264/284 passes
+[depth_infer]   inferred 272/284 passes
+[depth_infer]   inferred 280/284 passes
+[depth_infer]   inferred 284/284 passes
+[depth_infer] inference done in 67.3s (batch=8, stride=2, passes=284/566 frames)
+[depth_infer] sapiens fusion w=1.0 model=facebook/sapiens-depth-0.6b-torchscript
+[depth_infer]   sapiens 10/58 passes
+[depth_infer]   sapiens 20/58 passes
+[depth_infer]   sapiens 30/58 passes
+[depth_infer]   sapiens 40/58 passes
+[depth_infer]   sapiens 50/58 passes
+[depth_infer]   sapiens 58/58 passes
+[depth_infer] sapiens done in 106.3s
+[depth_infer] fused 566 frames (low band 1.00 sapiens, high band primary)
+[depth_infer] global normalize range: [0.0000, 0.9845] (p1.0/p99.0 over the whole clip)
+[depth_infer] wrote 566 depth frames -> ~/[project]/state/depth-work/[redacted]-1745.60335/depth
+[depth] encoding depth frames -> ~/[project]/renders/[redacted]-1745-depth.mp4 (video only, no audio, source fps)
+[depth] done -> ~/[project]/renders/[redacted]-1745-depth.mp4
+2026-08-26 18:22:07 [glass] depth: sapiens body fusion ON (recessed-only, w=1.0), grey analysis bg=128
+2026-08-26 18:22:07 [glass] matte: SKIPPED, source is already a clean black plate (matting it would only cut her hair)
+2026-08-26 18:22:08 [glass] void stability (matted): UNSTABLE {"body_cv": 0.0076, "cells_judged": 23, "worst_transitions": 9, "frames": 566, "fps": 25.0, "verdict": "UNSTABLE", "reason": "1 region(s) cycle while her body stays flat; worst r4c0 x9", "flagged": [{"cell": "r4c0", "transitions": 9, "peak": 195.1}], "corner_luma": 0.0}
+2026-08-26 18:22:08 [glass] HOLD: parts of her flicker in and out of existence on the matted clip ({"body_cv": 0.0076, "cells_judged": 23, "worst_transitions": 9, "frames": 566, "fps": 25.0, "verdict": "UNSTABLE", "reason": "1 region(s) cycle while her body stays flat; worst r4c0 x9", "flagged": [{"cell": "r4c0", "transitions": 9, "peak": 195.1}], "corner_luma": 0.0}); nothing cast, panel keeps its clip (GLASS_STABILITY_SOFT=1 overrides)
+Wed Aug 26 18:22:08 PDT 2026: [aj-holoblack] degraded: 2026-08-26 18:22:07 [glass] matte: SKIPPED, source is already a clean black plate (matting it would only cut her hair)
+Wed Aug 26 18:22:08 PDT 2026: [aj-holoblack] pinged claudeos DM: :red_circle: stage F: the glass was NOT updated
+Wed Aug 26 18:22:08 PDT 2026: [aj-holoblack] stage exited rc=2 during phase: glass leg (matte + depth + quilt + cast)
+Wed Aug 26 18:22:08 PDT 2026: --- run-stage captured stage output (exit 2, attempt 1) ---
+ping-schema: header was not bold; wrapped the opening sentence
+ping-schema: body is 935 chars of unstructured prose, no bullets
+Wed Aug 26 18:22:08 PDT 2026: --- end captured stage output ---
+Wed Aug 26 18:24:45 PDT 2026: [aj-holoblack] rendering glass-native holoblack clip (model claude-sonnet-5, budget $20.0)
+Wed Aug 26 18:24:51 PDT 2026: [aj-holoblack] re-coupled: worker authored 142 words, person-shifted
+Done. The clip is saved at `~/[project]/renders/[redacted]-1824.mp4` — 1080×1080, 24.8s, avatar_iii single take, pure black void with a fresh Sora-blue-shirt look (identity 0.6864, all gates PASS/CLEAN), void-stability STABLE (no reshoot needed). No subtitles, no other delivery destinations, per the spec.
+
+Quick notes on judgment calls made along the way:
+- Trimmed the script from the end (kept sentence 1 + part of sentence 2) to land at 24.24s before settle-pad, since the full script ran 54s raw.
+- Caught and fixed a mispronunciation ("mic-guard" → read as "Might Guard") by respelling to "mike-guard" for the TTS input only; subtitles aren't used here so this only affected the audio.
+- Slot: picked `neutral` (least-recently-used for holoblack per look-pools.md history), overriding its black-tee base with a saturated deep-blue shirt per the wardrobe-survives-void rule.
+- Generated 2 candidates in one draw (within the 2-generation cap), both passed every gate; took the higher-identity one (0.6864 vs 0.6859) per the no-taste-switching rule, even though the runner-up had a lower alien_hue and a more closed-mouth smile — those aren't valid switching criteria.

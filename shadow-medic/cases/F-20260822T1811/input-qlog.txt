@@ -1,0 +1,26 @@
+Sat Aug 22 17:45:56 PDT 2026: [aj-holoblack] rendering glass-native holoblack clip (model claude-sonnet-5, budget $20.0)
+Sat Aug 22 17:46:08 PDT 2026: [aj-holoblack] re-coupled: worker authored 99 words, person-shifted
+The render is still processing on HeyGen's side. I'll wait for the background timer notification before checking again.
+Sat Aug 22 18:04:28 PDT 2026: [aj-holoblack] look generations this run: 1 (ceiling 3)
+Sat Aug 22 18:04:28 PDT 2026: [aj-holoblack] no output from the render leg; checking HeyGen for a completed orphan titled [redacted]-1745
+The video with that exact title exists but its status is 'processing', not 'completed'.
+
+NOTFOUND
+Sat Aug 22 18:05:10 PDT 2026: [aj-holoblack] failed rc=0, no output (no completed orphan on HeyGen either)
+Sat Aug 22 18:05:12 PDT 2026: [aj-holoblack] pinged claudeos DM: :red_circle: stage F: no holoblack clip was rendered
+Sat Aug 22 18:05:12 PDT 2026: [aj-holoblack] stage exited rc=2 during phase: post-render bookkeeping (worker returned rc=0)
+Sat Aug 22 18:05:12 PDT 2026: --- run-stage captured stage output (exit 2, attempt 1) ---
+ping-schema: header was not bold; wrapped the opening sentence
+Sat Aug 22 18:05:12 PDT 2026: --- end captured stage output ---
+Sat Aug 22 18:10:30 PDT 2026: [aj-holoblack] rendering glass-native holoblack clip (model claude-sonnet-5, budget $20.0)
+Sat Aug 22 18:10:34 PDT 2026: [aj-holoblack] re-coupled: worker authored 101 words, person-shifted
+The clip rendered clean and is delivered. Summary:
+
+- Fresh Personal Model look generated (rust ribbed knit top, hair half-up, whisper warm rim at the crown only, black void), two candidates drawn, both clean on the still-alien, crop, body, panel, and watermark gates. Winner picked on identity score (0.698 vs 0.6358) — `[id]`.
+- Pins refreshed with the winning look before spending the render; taste registry + DPO pair logged.
+- Prop-gate probed and attested on the still (plain void, no props, no travel claim).
+- Voice drawn via `voice_take.sh` (3-take consensus check, all survived) on the verbatim script.
+- Single `avatar_iii` render at 1080x1080, black background, no subtitles — completed and passed the void stability gate (STABLE, worst_transitions 2, corner_luma 0.2). No second take needed.
+- Saved to `~/[project]/renders/[redacted]-1810.mp4` (39.98s), nothing else touched — no Slack, no Photos.
+
+One honest flag: the clip runs 39.98s, over the 15-25s target — the verbatim script itself was long enough to produce that. Per the brief I didn't rewrite it, and duration overrun isn't one of the conditions that unlocks a second `avatar_iii` take, so I didn't re-render for length.

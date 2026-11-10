@@ -1,0 +1,116 @@
+# CI gates for shadow-medic, this repository's harness that replays the medic's diagnoses against a
+# challenger model. The medic is the automated worker that diagnoses red alerts from scheduled jobs. A
+# case is one past alert frozen as files, its logs redacted of names, plus the medic's note as the answer
+# key. These gates check that no tracked case carries personal data such as an email or a phone number,
+# that each case's dev or holdout split (cases used for tuning versus cases kept unseen) reproduces, that
+# the README scoreboard matches live output, and that tracked prose has no em or en dashes.
+name: gates
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # the dev-set cross-check needs the tuning commit reachable
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Leak scan every tracked case
+        working-directory: shadow-medic
+        run: |
+          # compare.py check is deliberately over-inclusive (a missed name is worse than a false
+          # hit), so on its own it flags capitalised log phrases like "Fired DETACHED". CI fails
+          # only on structural leaks (emails, handles, IDs, phones, profile links) and on "full name"
+          # hits that survive a vocabulary filter; the rest is printed for the eye. The roster check,
+          # which knows each incident's real names, needs the private roster maps, so it runs on the
+          # author's machine before anything is published, never here.
+          python3 - <<'PY'
+          import json, re, subprocess, sys, pathlib
+          STOP = {"Personal","Model","Fresh","Fired","Fire","Left","Handed","Run","Delivered",
+                  "Budget","Monthly","Apps","Notion","Looking","Glass","Anthropic","CLI",
+                  "RED","ONE","NOT","ITS","DETACHED","FAILED","CONFIRMED","BY","UI","Stage",
+                  "Watch","ONLY"}
+          hard = 0; soft = 0
+          for c in sorted(pathlib.Path("cases").glob("*/")):
+              meta = c / "meta.json"
+              if meta.exists() and json.loads(meta.read_text()).get("withheld"):
+                  continue   # a withheld incident ships no logs, only its verdict fields
+              missing = [f for f in ("answer-key.md", "input-code.txt", "input-qlog.txt", "input-runlog.txt", "meta.json") if not (c / f).exists()]
+              if missing:
+                  hard += 1; print(f"  MISSING {c.name}: {', '.join(missing)}"); continue
+              r = subprocess.run([sys.executable, "compare.py", "check", "--structural-only", str(c)], capture_output=True, text=True)
+              out = r.stdout + r.stderr
+              if r.returncode == 0:
+                  continue
+              for line in out.splitlines():
+                  m = re.search(r"full name:\s+(.+)$", line)
+                  if m:
+                      words = m.group(1).split()
+                      if all(w in STOP or not w[:1].isupper() for w in words):
+                          soft += 1; print(f"  noise  {c.name}: {m.group(1)}")
+                      else:
+                          hard += 1; print(f"  LEAK   {c.name}: {m.group(1)}")
+                  elif re.search(r"\b(email|slack|handle|phone|slug|id|url)\b", line, re.I):
+                      hard += 1; print(f"  LEAK   {c.name}: {line.strip()}")
+          print(f"hard leaks: {hard}, vocabulary noise: {soft}")
+          sys.exit(1 if hard else 0)
+          PY
+
+      - name: Unit tests
+        working-directory: shadow-medic
+        run: bash run-tests.sh
+
+      - name: Dev-set manifest agrees with the tuning tree
+        run: python3 shadow-medic/harvest.py --verify-manifest
+
+      - name: Every case split is reproducible from provenance
+        working-directory: shadow-medic
+        run: |
+          python3 - <<'PY'
+          import sys, json, pathlib
+          sys.path.insert(0, '.')
+          import harvest
+          bad = []
+          metas = sorted(pathlib.Path('cases').glob('*/meta.json'))
+          for m in metas:
+              want = json.loads(m.read_text()).get('split')
+              got = harvest.split_for(m.parent.name)
+              if want != got:
+                  bad.append((m.parent.name, want, got))
+          print(f"{len(metas) - len(bad)} of {len(metas)} splits reproduce")
+          for b in bad:
+              print("MISMATCH", b)
+          sys.exit(1 if bad else 0)
+          PY
+
+      - name: README scoreboard and axis figure match live output
+        run: python3 shadow-medic/check-readme-scoreboard.py
+
+      - name: No em or en dashes in tracked prose
+        run: |
+          # only files git tracks: a local prompt.built.md is gitignored and must not fail CI
+          # python, not grep -P: BSD grep rejects -P and its exit 2 reads as "no match" in a
+          # pipeline, which is a false clean. This means the same thing on macOS and the runner.
+          # authored prose only: results/ and cases/ hold a model's verbatim verdicts and frozen
+          # production evidence, and linting a model's own words would mean editing the corpus
+          git ls-files -z -- '*.md' ':!shadow-medic/results' ':!shadow-medic/cases' | python3 -c '
+          import sys
+          bad = 0
+          for path in sys.stdin.buffer.read().split(b"\0"):
+              if not path:
+                  continue
+              for n, line in enumerate(open(path, encoding="utf-8", errors="replace"), 1):
+                  if "\u2014" in line or "\u2013" in line:
+                      print(f"{path.decode()}:{n}: {line.rstrip()[:100]}"); bad += 1
+          print("clean" if not bad else f"{bad} dash glyph line(s)")
+          sys.exit(1 if bad else 0)
+          '

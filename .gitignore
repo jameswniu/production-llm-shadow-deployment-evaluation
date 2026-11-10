@@ -1,0 +1,9 @@
+*.local.*
+.env
+.hermes-home/
+shadow-medic/prompt.built.md
+*.err
+*.failed.md
+*.jsonl
+.playwright-mcp/
+__pycache__/
