@@ -1,6 +1,7 @@
 #!/bin/bash
 # run-shadow.sh <engine: api|zai|hermes> <model> [case-dir]
-# Runs the shadow medic on one recorded red. Writes results/shadow-<model>-<engine>-<ts>.md on success;
+# Runs the shadow medic (the challenger model doing the medic's diagnosis job) on one recorded red, one past
+# failed run of a scheduled job. Writes results/shadow-<model>-<engine>-<ts>.md on success;
 # a failed run (nonzero model exit, or no SHADOW_RESULT line) is renamed *.failed.md and this script exits nonzero,
 # so nothing downstream can count it as a usable run.
 # api    = the model alone through the local Ollama endpoint (control: no harness, no tools)
@@ -15,7 +16,7 @@ python3 - "$D/prompt-template.md" "$CASE" > "$D/prompt.built.md" <<'PY'
 import sys, pathlib
 import json
 t = pathlib.Path(sys.argv[1]).read_text(); c = pathlib.Path(sys.argv[2])
-meta = json.load(open(c / 'meta.json')) if (c / 'meta.json').exists() else {'stage': 'Q', 'script': 'Q-follow-up.sh', 'log': 'Q-follow-up.log'}
+meta = json.load(open(c / 'meta.json')) if (c / 'meta.json').exists() else {'stage': '?', 'script': 'unknown-job.sh', 'log': 'unknown-job.log'}
 t = t.replace('{STAGE_LOG}', meta.get('log') or 'the stage log').replace('{SCRIPT}', meta.get('script') or 'the stage script')
 for k, f in (('RUNLOG', 'input-runlog.txt'), ('QLOG', 'input-qlog.txt'), ('CODE', 'input-code.txt')):
     t = t.replace('{' + k + '}', (c / f).read_text())

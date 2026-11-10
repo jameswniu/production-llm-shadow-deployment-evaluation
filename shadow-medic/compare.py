@@ -509,7 +509,7 @@ def built_prompt(case):
     and the prompt then gets the full check instead of a crash."""
     tmpl = pathlib.Path(__file__).parent / 'prompt-template.md'
     try:
-        meta = json.loads((case / 'meta.json').read_text()) if (case / 'meta.json').exists() else {'stage': 'Q', 'script': 'Q-follow-up.sh', 'log': 'Q-follow-up.log'}
+        meta = json.loads((case / 'meta.json').read_text()) if (case / 'meta.json').exists() else {'stage': '?', 'script': 'unknown-job.sh', 'log': 'unknown-job.log'}
         labels = (meta.get('log') or 'the stage log', meta.get('script') or 'the stage script')
         values = {'{STAGE_LOG}': labels[0], '{SCRIPT}': labels[1]}
         for k, f in (('RUNLOG', 'input-runlog.txt'), ('QLOG', 'input-qlog.txt'), ('CODE', 'input-code.txt')):

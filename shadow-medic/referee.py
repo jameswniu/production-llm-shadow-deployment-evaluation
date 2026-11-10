@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """referee.py <case-dir> <shadow-result.md> [--engine zai] [--model glm-5.3]
 
-Adjudicates ONE incumbent-vs-shadow disagreement. The incumbent (the production medic) is the
-oracle only by convention; on a disagreement somebody has to be wrong, and the point of this lane
-is that it cuts both ways: a referee ruling for the shadow is a free bug report on the incumbent.
+Adjudicates ONE incumbent-vs-shadow disagreement. The incumbent (the production medic, the Claude agent
+that diagnoses failed scheduled jobs) is the oracle only by convention, and the shadow is the challenger
+model tested against it. On a disagreement somebody has to be wrong, and the point of this check is that
+it cuts both ways: a referee ruling for the shadow is a free bug report on the incumbent.
 
-Discipline, from the 2026-08-29 research pass (noisy-judge literature) and the house twos rule:
+Discipline, from the 2026-08-29 research pass (noisy-judge literature) and the house rule that every
+ruling gets a second, refuting review:
   - The two positions are presented as A and B in RANDOMIZED order, unlabeled, so the judge cannot
     favour the incumbent by position or by knowing which is the incumbent.
   - The judge rules on the EVIDENCE ONLY, and must quote the line it relies on.

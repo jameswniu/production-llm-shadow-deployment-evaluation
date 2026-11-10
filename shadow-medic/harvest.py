@@ -322,7 +322,7 @@ def build_roster(text):
     # case at the preflight). Function words and product names are the two false-positive families.
     skip = {'Fri','Thu','Mon','Tue','Wed','Sat','Sun','Stage','Step','Nothing','Pending','Triage','One','The','Search','Sent','Received','Recommendation','Board','Parent','Diagnosis','Session','Judgment','Checked','Worker','Fleet','Health','Landed','Stage-Watch','Script','Exit','Ran','Dashboard','Logs','Claude','Code','Opus','Sonnet','Haiku','Fable','Slack','Gmail','Google','James',
             'No','Not','New','All','Any','Each','Every','Both','Two','Three','This','That','These','Those','Some','Only','After','Before','When','While','With','From','Into','Over','Under','Next','Last','First','Same','Since','Then','There','Here','Now','Yes','If','And','But','For','Its','Was','Has','Had','Did','Does','Will','Would','Should','Could','May','Might','Must','Can'}
-    # Roster building stays OVER-INCLUSIVE on purpose (adversary finding 2026-08-29): a filter here
+    # Roster building stays OVER-INCLUSIVE on purpose (a refuting reviewer's finding, 2026-08-29): a filter here
     # can drop a REAL name ("Jane Smith" beside a lowercase "jane-smith") and then nothing ever
     # redacts it. Over-redaction is safe; a missed name is not. The vocabulary filter lives in
     # compare.py, applied only to the single tokens derived from the roster.
@@ -458,7 +458,7 @@ def main():
             print(f"would make {slug}: class={kclass} split={split_for(slug)} roster={len(roster)} "
                   f"runlog={len(runlog)}b stagelog={len(stagelog)}b code={len(code)}b")
             continue
-        # STAGE THEN PROMOTE (adversary finding, 2026-08-29): raw production evidence must
+        # STAGE THEN PROMOTE (a refuting reviewer's finding, 2026-08-29): raw production evidence must
         # never touch the committable tree. Build and redact in a temp dir OUTSIDE the repo;
         # only a case that passes the leak check is moved into cases/. A crash mid-harvest
         # strands nothing but a tmpdir the OS owns.
