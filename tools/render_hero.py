@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit media/hero.svg. Every number comes from compare.py through tools/facts.py.
+"""Emit media/hero.svg. Every number comes from compare.py, the shadow-medic script that scores the challenger model against the trusted model's verdicts and prints the gate's decision, through tools/facts.py.
 
     python3 tools/render_hero.py --write    regenerate
     python3 tools/render_hero.py --check    exit 1 with a diff if the committed file drifted
