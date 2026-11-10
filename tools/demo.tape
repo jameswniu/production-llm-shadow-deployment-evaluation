@@ -8,10 +8,10 @@ Set Height 460
 Set Padding 24
 Set Framerate 12
 Set TypingSpeed 40ms
-Set Theme { "name": "shadow", "black": "#041c1c", "red": "#e06c5a", "green": "#7fc8a0", "yellow": "#C7A96B", "blue": "#6aa6b8", "magenta": "#b48ead", "cyan": "#5fb3b3", "white": "#ffe6cb", "brightBlack": "#2a4a4a", "brightRed": "#e06c5a", "brightGreen": "#7fc8a0", "brightYellow": "#FFBF00", "brightBlue": "#6aa6b8", "brightMagenta": "#b48ead", "brightCyan": "#5fb3b3", "brightWhite": "#ffe6cb", "background": "#041c1c", "foreground": "#ffe6cb", "selection": "#2a4a4a", "cursor": "#FFBF00" }
+Set Theme { "name": "graphite", "black": "#0e1117", "red": "#b5654a", "green": "#4f9a6f", "yellow": "#8b949e", "blue": "#7f9bb8", "magenta": "#8b949e", "cyan": "#7f9bb8", "white": "#e6e9ee", "brightBlack": "#2c333d", "brightRed": "#b5654a", "brightGreen": "#4f9a6f", "brightYellow": "#8b949e", "brightBlue": "#7f9bb8", "brightMagenta": "#8b949e", "brightCyan": "#7f9bb8", "brightWhite": "#e6e9ee", "background": "#0e1117", "foreground": "#e6e9ee", "selection": "#2c333d", "cursor": "#7f9bb8" }
 
 Hide
-Type "export PS1='\[\e[38;2;199;169;107m\]$ \[\e[0m\]' && clear"
+Type "export PS1='\[\e[38;2;139;148;158m\]$ \[\e[0m\]' && clear"
 Enter
 Show
 

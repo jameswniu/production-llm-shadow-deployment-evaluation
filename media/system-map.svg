@@ -1,73 +1,73 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1374" width="100%" role="img" aria-label="System map: how a challenger earns the switch">
-<rect width="1200" height="1374" rx="12" fill="#041c1c"/>
-<rect x="0" y="0" width="10" height="1374" fill="#FFBF00"/>
-<text x="44" y="56" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#C7A96B" letter-spacing="2">SYSTEM MAP</text>
-<text x="44" y="116" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="44" fill="#ffe6cb" font-weight="700">How a challenger earns the switch</text>
-<text x="44" y="160" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="25" fill="#C7A96B">One seam, one loop, one gate, four rungs</text>
-<rect x="756" y="28" width="400" height="52" rx="8" fill="#0b2f2f" stroke="#B8860B" stroke-width="1.5"/>
-<text x="956" y="62" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb" text-anchor="middle">100 scored · 15 pending</text>
-<text x="44" y="224" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb" font-weight="700" letter-spacing="1">01  THE SEAM</text>
-<text x="304" y="224" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#C7A96B">one env flag, nowhere else</text>
-<line x1="44" y1="240" x2="1156" y2="240" stroke="#B8860B" stroke-width="1.5"/>
-<rect x="44" y="256" width="1112" height="162" rx="8" fill="#0b2f2f" stroke="#B8860B" stroke-width="1.5"/>
-<text x="64" y="296" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#ffe6cb" font-weight="700">One model call</text>
-<text x="64" y="330" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">The trusted model&#x27;s diagnosis runs through a single call behind an env flag.</text>
-<text x="64" y="360" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">The challenger plugs in there, nowhere else.</text>
-<text x="64" y="400" font-family="SF Mono, Menlo, Consolas, monospace" font-size="23" fill="#C7A96B">run-shadow.sh</text>
-<text x="44" y="472" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb" font-weight="700" letter-spacing="1">02  THE LOOP</text>
-<text x="304" y="472" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#C7A96B">free answer keys, same question</text>
-<line x1="44" y1="488" x2="1156" y2="488" stroke="#B8860B" stroke-width="1.5"/>
-<rect x="44" y="504" width="300" height="222" rx="8" fill="#0b2f2f" stroke="#B8860B" stroke-width="1.5"/>
-<text x="64" y="544" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#ffe6cb" font-weight="700">Ledger</text>
-<text x="64" y="578" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">Every verdict the</text>
-<text x="64" y="608" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">trusted model logs</text>
-<text x="64" y="638" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">becomes an answer</text>
-<text x="64" y="668" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">key, free.</text>
-<text x="64" y="708" font-family="SF Mono, Menlo, Consolas, monospace" font-size="23" fill="#C7A96B">harvest.py</text>
-<rect x="364" y="504" width="360" height="222" rx="8" fill="#0b2f2f" stroke="#B8860B" stroke-width="1.5"/>
-<text x="384" y="544" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#ffe6cb" font-weight="700">Frozen incident</text>
-<text x="384" y="578" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">Logs from before the</text>
-<text x="384" y="608" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">incident, the rulebook</text>
-<text x="384" y="638" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">word for word, no</text>
-<text x="384" y="668" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">tools.</text>
-<text x="384" y="708" font-family="SF Mono, Menlo, Consolas, monospace" font-size="23" fill="#C7A96B">cases/&lt;id&gt;/</text>
-<rect x="744" y="504" width="412" height="222" rx="8" fill="#0b2f2f" stroke="#B8860B" stroke-width="1.5"/>
-<text x="764" y="544" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#ffe6cb" font-weight="700">Shadow run and compare</text>
-<text x="764" y="578" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">The challenger answers the</text>
-<text x="764" y="608" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">same question. compare.py</text>
-<text x="764" y="638" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">scores agreement.</text>
-<text x="764" y="708" font-family="SF Mono, Menlo, Consolas, monospace" font-size="23" fill="#C7A96B">compare.py</text>
-<text x="44" y="780" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb" font-weight="700" letter-spacing="1">03  THE GATE</text>
-<text x="304" y="780" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#C7A96B">tuning data never counts</text>
-<line x1="44" y1="796" x2="1156" y2="796" stroke="#B8860B" stroke-width="1.5"/>
-<rect x="44" y="812" width="546" height="162" rx="8" fill="#0b2f2f" stroke="#B8860B" stroke-width="1.5"/>
-<text x="64" y="852" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#ffe6cb" font-weight="700">Holdout only</text>
-<text x="64" y="886" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">Incidents used while tuning are</text>
-<text x="64" y="916" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">marked dev and never reach the gate.</text>
-<text x="64" y="956" font-family="SF Mono, Menlo, Consolas, monospace" font-size="23" fill="#C7A96B">dev-set.txt</text>
-<rect x="610" y="812" width="546" height="162" rx="8" fill="#0b2f2f" stroke="#B8860B" stroke-width="1.5"/>
-<text x="630" y="852" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#ffe6cb" font-weight="700">Sequential test</text>
-<text x="630" y="886" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">+0.14 per agreement, -0.92 per miss.</text>
-<text x="630" y="916" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">Promote at +2.94, reject at -2.94.</text>
-<text x="630" y="956" font-family="SF Mono, Menlo, Consolas, monospace" font-size="23" fill="#C7A96B">compare.py scoreboard</text>
-<text x="44" y="1028" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb" font-weight="700" letter-spacing="1">04  THE LADDER</text>
-<text x="304" y="1028" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#C7A96B">four rungs, one per trust level</text>
-<line x1="44" y1="1044" x2="1156" y2="1044" stroke="#B8860B" stroke-width="1.5"/>
-<rect x="44" y="1060" width="546" height="128" rx="8" fill="#0b2f2f" stroke="#B8860B" stroke-width="1.5"/>
-<rect x="52" y="1060" width="530" height="5" fill="#FFBF00"/>
-<text x="64" y="1100" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#ffe6cb" font-weight="700">1 Shadow</text>
-<text x="64" y="1134" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">Logs handed over, no tools. Live</text>
-<text x="64" y="1164" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">now.</text>
-<rect x="610" y="1060" width="546" height="128" rx="8" fill="#0b2f2f" stroke="#B8860B" stroke-width="1.5"/>
-<text x="630" y="1100" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#ffe6cb" font-weight="700">2 Read-only tools</text>
-<text x="630" y="1134" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">The challenger reads evidence</text>
-<text x="630" y="1164" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">itself, still cannot act.</text>
-<rect x="44" y="1208" width="546" height="128" rx="8" fill="#0b2f2f" stroke="#B8860B" stroke-width="1.5"/>
-<text x="64" y="1248" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#ffe6cb" font-weight="700">3 Live diagnosis</text>
-<text x="64" y="1282" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">It diagnoses in production while the</text>
-<text x="64" y="1312" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">trusted model keeps the keys.</text>
-<rect x="610" y="1208" width="546" height="128" rx="8" fill="#0b2f2f" stroke="#B8860B" stroke-width="1.5"/>
-<text x="630" y="1248" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#ffe6cb" font-weight="700">4 The switch</text>
-<text x="630" y="1282" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">One env var per job family that has</text>
-<text x="630" y="1312" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb">cleared the gate.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1374" width="100%" role="img" shape-rendering="crispEdges" aria-label="System map: how a challenger earns the switch">
+<rect width="1200" height="1374" fill="#0e1117"/>
+<rect x="1" y="1" width="1198" height="1372" fill="none" stroke="#2c333d" stroke-width="2"/>
+<rect x="0" y="0" width="8" height="1374" rx="0" fill="#7f9bb8"/>
+<text x="44" y="56" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#8b949e" letter-spacing="2">SYSTEM MAP</text>
+<text x="44" y="116" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="44" fill="#e6e9ee" font-weight="700">How a challenger earns the switch</text>
+<text x="44" y="160" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="25" fill="#8b949e">One seam, one loop, one gate, four rungs</text>
+<rect x="756" y="28" width="400" height="52" rx="0" fill="#171c24" stroke="#2c333d" stroke-width="2"/>
+<text x="956" y="62" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee" text-anchor="middle">100 scored · 15 pending</text>
+<text x="44" y="224" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee" font-weight="700" letter-spacing="1">01  THE SEAM</text>
+<text x="304" y="224" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#8b949e">one env flag, nowhere else</text>
+<line x1="44" y1="240" x2="1156" y2="240" stroke="#2c333d" stroke-width="2"/>
+<rect x="44" y="256" width="1112" height="162" rx="0" fill="#171c24" stroke="#2c333d" stroke-width="2"/>
+<text x="64" y="296" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#e6e9ee" font-weight="700">One model call</text>
+<text x="64" y="330" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">The trusted model&#x27;s diagnosis runs through a single call behind an env flag.</text>
+<text x="64" y="360" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">The challenger plugs in there, nowhere else.</text>
+<text x="64" y="400" font-family="SF Mono, Menlo, Consolas, monospace" font-size="23" fill="#8b949e">run-shadow.sh</text>
+<text x="44" y="472" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee" font-weight="700" letter-spacing="1">02  THE LOOP</text>
+<text x="304" y="472" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#8b949e">free answer keys, same question</text>
+<line x1="44" y1="488" x2="1156" y2="488" stroke="#2c333d" stroke-width="2"/>
+<rect x="44" y="504" width="300" height="222" rx="0" fill="#171c24" stroke="#2c333d" stroke-width="2"/>
+<text x="64" y="544" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#e6e9ee" font-weight="700">Ledger</text>
+<text x="64" y="578" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">Every verdict the</text>
+<text x="64" y="608" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">trusted model logs</text>
+<text x="64" y="638" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">becomes an answer</text>
+<text x="64" y="668" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">key, free.</text>
+<text x="64" y="708" font-family="SF Mono, Menlo, Consolas, monospace" font-size="23" fill="#8b949e">harvest.py</text>
+<rect x="364" y="504" width="360" height="222" rx="0" fill="#171c24" stroke="#2c333d" stroke-width="2"/>
+<text x="384" y="544" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#e6e9ee" font-weight="700">Frozen incident</text>
+<text x="384" y="578" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">Logs from before the</text>
+<text x="384" y="608" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">incident, the rulebook</text>
+<text x="384" y="638" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">word for word, no</text>
+<text x="384" y="668" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">tools.</text>
+<text x="384" y="708" font-family="SF Mono, Menlo, Consolas, monospace" font-size="23" fill="#8b949e">cases/&lt;id&gt;/</text>
+<rect x="744" y="504" width="412" height="222" rx="0" fill="#171c24" stroke="#2c333d" stroke-width="2"/>
+<text x="764" y="544" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#e6e9ee" font-weight="700">Shadow run and compare</text>
+<text x="764" y="578" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">The challenger answers the</text>
+<text x="764" y="608" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">same question. compare.py</text>
+<text x="764" y="638" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">scores agreement.</text>
+<text x="764" y="708" font-family="SF Mono, Menlo, Consolas, monospace" font-size="23" fill="#8b949e">compare.py</text>
+<text x="44" y="780" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee" font-weight="700" letter-spacing="1">03  THE GATE</text>
+<text x="304" y="780" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#8b949e">tuning data never counts</text>
+<line x1="44" y1="796" x2="1156" y2="796" stroke="#2c333d" stroke-width="2"/>
+<rect x="44" y="812" width="546" height="162" rx="0" fill="#171c24" stroke="#2c333d" stroke-width="2"/>
+<text x="64" y="852" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#e6e9ee" font-weight="700">Holdout only</text>
+<text x="64" y="886" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">Incidents used while tuning are</text>
+<text x="64" y="916" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">marked dev and never reach the gate.</text>
+<text x="64" y="956" font-family="SF Mono, Menlo, Consolas, monospace" font-size="23" fill="#8b949e">dev-set.txt</text>
+<rect x="610" y="812" width="546" height="162" rx="0" fill="#171c24" stroke="#2c333d" stroke-width="2"/>
+<text x="630" y="852" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#e6e9ee" font-weight="700">Sequential test</text>
+<text x="630" y="886" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">+0.14 per agreement, -0.92 per miss.</text>
+<text x="630" y="916" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">Promote at +2.94, reject at -2.94.</text>
+<text x="630" y="956" font-family="SF Mono, Menlo, Consolas, monospace" font-size="23" fill="#8b949e">compare.py scoreboard</text>
+<text x="44" y="1028" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee" font-weight="700" letter-spacing="1">04  THE LADDER</text>
+<text x="304" y="1028" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#8b949e">four rungs, one per trust level</text>
+<line x1="44" y1="1044" x2="1156" y2="1044" stroke="#2c333d" stroke-width="2"/>
+<rect x="44" y="1060" width="546" height="128" rx="0" fill="#171c24" stroke="#7f9bb8" stroke-width="3"/>
+<text x="64" y="1100" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#e6e9ee" font-weight="700">1 Shadow</text>
+<text x="64" y="1134" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">Logs handed over, no tools. Live</text>
+<text x="64" y="1164" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">now.</text>
+<rect x="610" y="1060" width="546" height="128" rx="0" fill="#171c24" stroke="#2c333d" stroke-width="2"/>
+<text x="630" y="1100" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#e6e9ee" font-weight="700">2 Read-only tools</text>
+<text x="630" y="1134" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">The challenger reads evidence</text>
+<text x="630" y="1164" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">itself, still cannot act.</text>
+<rect x="44" y="1208" width="546" height="128" rx="0" fill="#171c24" stroke="#2c333d" stroke-width="2"/>
+<text x="64" y="1248" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#e6e9ee" font-weight="700">3 Live diagnosis</text>
+<text x="64" y="1282" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">It diagnoses in production while the</text>
+<text x="64" y="1312" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">trusted model keeps the keys.</text>
+<rect x="610" y="1208" width="546" height="128" rx="0" fill="#171c24" stroke="#2c333d" stroke-width="2"/>
+<text x="630" y="1248" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#e6e9ee" font-weight="700">4 The switch</text>
+<text x="630" y="1282" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">One env var per job family that has</text>
+<text x="630" y="1312" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee">cleared the gate.</text>
 </svg>

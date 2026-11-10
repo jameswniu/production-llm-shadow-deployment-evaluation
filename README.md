@@ -2,21 +2,46 @@
 
 <p align="center">
 <a href="https://github.com/jameswniu/production-llm-shadow-deployment-evaluation/actions/workflows/gates.yml"><img src="https://github.com/jameswniu/production-llm-shadow-deployment-evaluation/actions/workflows/gates.yml/badge.svg?branch=master" alt="CI"></a>
-<img src="https://img.shields.io/badge/incidents-130-0b2f2f?labelColor=041c1c" alt="130 incidents">
-<img src="https://img.shields.io/badge/held_out-115-0b2f2f?labelColor=041c1c" alt="115 held out, 100 scored and 15 pending">
-<img src="https://img.shields.io/badge/ops-52%2F62-FFBF00?labelColor=041c1c" alt="ops 52 of 62">
-<img src="https://img.shields.io/badge/render-26%2F38-d14a4a?labelColor=041c1c" alt="render 26 of 38">
-<img src="https://img.shields.io/badge/tests-275-0b2f2f?labelColor=041c1c" alt="275 tests passing">
-<img src="https://img.shields.io/badge/license-Apache_2.0-0b2f2f?labelColor=041c1c" alt="Apache 2.0">
+<img src="https://img.shields.io/badge/incidents-130-5b6470?labelColor=0e1117" alt="130 incidents">
+<img src="https://img.shields.io/badge/held_out-115-5b6470?labelColor=0e1117" alt="115 held out, 100 scored and 15 pending">
+<img src="https://img.shields.io/badge/ops-52%2F62-4f6d8f?labelColor=0e1117" alt="ops 52 of 62">
+<img src="https://img.shields.io/badge/render-26%2F38-b5654a?labelColor=0e1117" alt="render 26 of 38">
+<img src="https://img.shields.io/badge/tests-275-5b6470?labelColor=0e1117" alt="275 tests passing">
+<img src="https://img.shields.io/badge/license-Apache_2.0-5b6470?labelColor=0e1117" alt="Apache 2.0">
 </p>
 
 <p align="center"><code>ledger -> harvest -> freeze -> shadow -> compare -> gate</code></p>
+
+<div align="center">
+
+<img src="media/mascot_shadowing.png" width="120" align="middle" alt="The mascot standing behind a laptop">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/jameswniu/production-llm-shadow-deployment-evaluation/raw/master/media/shadowos-ad.mp4"><img src="media/shadowos-ad.gif" width="360" align="middle" alt="A man types at a laptop while an identical man behind him types the same keys on empty air. By morning they have swapped seats."></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="media/mascot_handover.png" width="120" align="middle" alt="The mascot holding a folder">
+
+<a href="https://github.com/jameswniu/production-llm-shadow-deployment-evaluation/raw/master/media/shadowos-ad.mp4">Watch with sound</a>
+
+</div>
 
 ShadowOS is the tool in this repo. A challenger model works every real incident in the shadow of the model you trust, and a sequential test decides when it has earned the job.
 
 The trusted model here is the medic, a Claude agent that diagnoses every failed job in my fleet of scheduled automation and logs a verdict. The challenger is GLM-5.3, handed the same logs and the medic's rulebook, and no tools.
 
 Every verdict is one of two classes. MECHANICAL means the fix is a rerun or a close by rule, and JUDGMENT means a person has to look. Agreement means the challenger matched the medic's own label, so the bar is no worse than the incumbent, not right in some absolute sense.
+
+```mermaid
+%%{init: {'theme': 'base', 'flowchart': {'curve': 'linear', 'padding': 18, 'nodeSpacing': 44, 'rankSpacing': 44}, 'themeVariables': {'lineColor': '#8b949e', 'textColor': '#e6e9ee', 'primaryColor': '#171c24', 'primaryTextColor': '#e6e9ee', 'primaryBorderColor': '#2c333d', 'fontSize': '16px'}}}%%
+flowchart TD
+    A["Medic, the trusted model<br/>diagnoses each failed job"] --> B["Its ledger of verdicts"]
+    B --> C["harvest.py<br/>freezes each incident"]
+    C --> D["Incident folder<br/>logs + answer key"]
+    D --> E["run-shadow.sh<br/>challenger, same logs, no tools"]
+    D -.-> F
+    E --> F["compare.py<br/>agreement and the gate, per family"]
+    style A fill:#171c24,color:#e6e9ee,stroke:#e6e9ee,stroke-width:2px
+    style B fill:#171c24,color:#e6e9ee,stroke:#8b949e,stroke-width:2px,stroke-dasharray:6 4
+    style C fill:#171c24,color:#e6e9ee,stroke:#7f9bb8,stroke-width:2px
+    style D fill:#171c24,color:#e6e9ee,stroke:#8b949e,stroke-width:2px,stroke-dasharray:6 4
+    style E fill:#171c24,color:#e6e9ee,stroke:#7f9bb8,stroke-width:2px
+    style F fill:#171c24,color:#e6e9ee,stroke:#4f9a6f,stroke-width:2px
+```
 
 <img src="media/scoreboard-demo.gif" width="100%" alt="A terminal runs both scoreboards and one comparison. Ops ends in CONTINUE, render in REJECT, and the incident in MATCH.">
 
@@ -138,16 +163,6 @@ Read https://github.com/jameswniu/production-llm-shadow-deployment-evaluation an
 - The 8 shipped logs have paths, project names, links, emails and long ids swapped for placeholders like `[project]`. CI checks them for emails, phone numbers, ids and links, but not for names, because a name check needs each incident's private roster. Names were redacted when each incident was frozen, and every shipped log was read line by line before release.
 
 Seven rules the instrument learned the hard way, each at the price of one wrong verdict, are in [`docs/boundary.md`](docs/boundary.md).
-
-## The idea in 40 seconds
-
-<div align="center">
-
-<a href="https://github.com/jameswniu/production-llm-shadow-deployment-evaluation/raw/master/media/shadowos-ad.mp4"><img src="media/shadowos-ad.gif" width="360" alt="A man types at a laptop while an identical man behind him types the same keys on empty air. By morning they have swapped seats."></a>
-
-<a href="https://github.com/jameswniu/production-llm-shadow-deployment-evaluation/raw/master/media/shadowos-ad.mp4">Watch with sound</a>
-
-</div>
 
 ## Files
 

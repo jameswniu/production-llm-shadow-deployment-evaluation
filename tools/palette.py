@@ -1,4 +1,7 @@
-"""Shared colors, fonts, SVG helpers and the text-fit guard for every figure generator."""
+"""Shared colors, fonts, SVG helpers and the text-fit guard for every figure generator.
+
+Graphite palette: one muted slate accent on labels and thin rules, square corners, hairline frames.
+"""
 import difflib
 import html
 import os
@@ -6,14 +9,14 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-GROUND = "#041c1c"
-PANEL = "#0b2f2f"
-EDGE = "#B8860B"
-INK = "#ffe6cb"
-MUTED = "#C7A96B"
-ACCENT = "#FFBF00"
-GOOD = "#34d399"
-BAD = "#d14a4a"
+GROUND = "#0e1117"
+PANEL = "#171c24"
+EDGE = "#2c333d"
+INK = "#e6e9ee"
+MUTED = "#8b949e"
+ACCENT = "#7f9bb8"
+GOOD = "#4f9a6f"
+BAD = "#b5654a"
 FONT_SANS = "-apple-system, Segoe UI, Helvetica, Arial, sans-serif"
 FONT_MONO = "SF Mono, Menlo, Consolas, monospace"
 FLOOR = 23
@@ -45,15 +48,24 @@ def t(x, y, s, size, fill=INK, bold=False, mono=False, anchor=None, spacing=None
             f'{esc(s)}</text>')
 
 
-def rect(x, y, w, h, fill="none", stroke=None, sw=1.5, rx=8, dash=None):
+def rect(x, y, w, h, fill="none", stroke=None, sw=2, rx=0, dash=None, extra=""):
+    """A square-cornered rectangle. Strokes are 2 units so they stay a crisp pixel at 75% zoom."""
     s = f' stroke="{stroke}" stroke-width="{sw}"' if stroke else ""
     d = f' stroke-dasharray="{dash}"' if dash else ""
-    return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{rx}" fill="{fill}"{s}{d}/>'
+    return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{rx}" fill="{fill}"{s}{d}{extra}/>'
+
+
+def line(x1, y1, x2, y2, stroke=EDGE, sw=2, dash=None):
+    d = f' stroke-dasharray="{dash}"' if dash else ""
+    return f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{stroke}" stroke-width="{sw}"{d}/>'
 
 
 def svg_open(w, h, label):
+    """The root element, a graphite ground and a hairline frame. Shapes snap to pixels; text does not."""
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="100%" role="img" '
-            f'aria-label="{esc(label)}">\n<rect width="{w}" height="{h}" rx="12" fill="{GROUND}"/>')
+            f'shape-rendering="crispEdges" aria-label="{esc(label)}">\n'
+            f'<rect width="{w}" height="{h}" fill="{GROUND}"/>\n'
+            f'<rect x="1" y="1" width="{w - 2}" height="{h - 2}" fill="none" stroke="{EDGE}" stroke-width="2"/>')
 
 
 def run(argv, out_path, build):

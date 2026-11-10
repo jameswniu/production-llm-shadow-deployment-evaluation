@@ -1,30 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 524" width="100%" role="img" aria-label="Shadow deployment for LLM workflows: scoreboard and the four rungs">
-<rect width="1200" height="524" rx="12" fill="#041c1c"/>
-<text x="48" y="54" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#C7A96B" letter-spacing="2">SHADOW DEPLOYMENT FOR LLM WORKFLOWS</text>
-<text x="48" y="112" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="44" fill="#ffe6cb" font-weight="700">A new model earns production</text>
-<text x="48" y="164" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="44" fill="#ffe6cb" font-weight="700">in the shadow of the old one</text>
-<text x="48" y="212" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="25" fill="#C7A96B">Same incidents, same rulebook, no tools. A sequential test says promote,</text>
-<text x="48" y="244" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="25" fill="#C7A96B">keep shadowing or reject, one job family at a time.</text>
-<rect x="48" y="270" width="300" height="124" rx="8" fill="#0b2f2f" stroke="#B8860B" stroke-width="1.5"/>
-<text x="70" y="324" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="40" fill="#ffe6cb" font-weight="700">115</text>
-<text x="70" y="356" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#C7A96B">held-out incidents</text>
-<rect x="372" y="270" width="378" height="124" rx="8" fill="#0b2f2f" stroke="#B8860B" stroke-width="1.5"/>
-<rect x="380" y="270" width="362" height="5" fill="#FFBF00"/>
-<text x="394" y="324" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="40" fill="#ffe6cb" font-weight="700">52 / 62</text>
-<text x="394" y="356" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#C7A96B">ops agreements</text>
-<text x="394" y="386" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#C7A96B">keep shadowing</text>
-<rect x="774" y="270" width="378" height="124" rx="8" fill="#0b2f2f" stroke="#B8860B" stroke-width="1.5"/>
-<rect x="782" y="270" width="362" height="5" fill="#d14a4a"/>
-<text x="796" y="324" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="40" fill="#ffe6cb" font-weight="700">26 / 38</text>
-<text x="796" y="356" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#C7A96B">render agreements</text>
-<text x="796" y="386" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#C7A96B">rejected</text>
-<rect x="48" y="424" width="378" height="44" rx="8" fill="#FFBF00"/>
-<text x="64" y="454" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#041c1c" font-weight="700">1 shadow, logs handed over</text>
-<rect x="434" y="424" width="258" height="44" rx="8" fill="none" stroke="#B8860B" stroke-width="2"/>
-<text x="450" y="454" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#ffe6cb">2 read-only tools</text>
-<rect x="700" y="424" width="245" height="44" rx="8" fill="none" stroke="#B8860B" stroke-width="2"/>
-<text x="716" y="454" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#ffe6cb">3 live diagnosis</text>
-<rect x="953" y="424" width="192" height="44" rx="8" fill="none" stroke="#B8860B" stroke-width="2"/>
-<text x="969" y="454" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#ffe6cb">4 the switch</text>
-<text x="48" y="508" font-family="SF Mono, Menlo, Consolas, monospace" font-size="23" fill="#C7A96B">python3 shadow-medic/compare.py scoreboard --family ops | --family render</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 524" width="100%" role="img" shape-rendering="crispEdges" aria-label="Shadow deployment for LLM workflows: scoreboard and the four rungs">
+<rect width="1200" height="524" fill="#0e1117"/>
+<rect x="1" y="1" width="1198" height="522" fill="none" stroke="#2c333d" stroke-width="2"/>
+<text x="48" y="54" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#8b949e" letter-spacing="2">SHADOW DEPLOYMENT FOR LLM WORKFLOWS</text>
+<text x="48" y="112" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="44" fill="#e6e9ee" font-weight="700">A new model earns production</text>
+<text x="48" y="164" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="44" fill="#e6e9ee" font-weight="700">in the shadow of the old one</text>
+<text x="48" y="212" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="25" fill="#8b949e">Same incidents, same rulebook, no tools. A sequential test says promote,</text>
+<text x="48" y="244" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="25" fill="#8b949e">keep shadowing or reject, one job family at a time.</text>
+<rect x="48" y="270" width="300" height="124" rx="0" fill="#171c24" stroke="#2c333d" stroke-width="2"/>
+<rect x="48" y="270" width="300" height="4" rx="0" fill="#8b949e"/>
+<text x="70" y="324" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="40" fill="#e6e9ee" font-weight="700">115</text>
+<text x="70" y="356" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#8b949e">held-out incidents</text>
+<rect x="372" y="270" width="378" height="124" rx="0" fill="#171c24" stroke="#2c333d" stroke-width="2"/>
+<rect x="372" y="270" width="378" height="4" rx="0" fill="#7f9bb8"/>
+<text x="394" y="324" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="40" fill="#e6e9ee" font-weight="700">52 / 62</text>
+<text x="394" y="356" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#8b949e">ops agreements</text>
+<text x="394" y="386" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#8b949e">keep shadowing</text>
+<rect x="774" y="270" width="378" height="124" rx="0" fill="#171c24" stroke="#2c333d" stroke-width="2"/>
+<rect x="774" y="270" width="378" height="4" rx="0" fill="#b5654a"/>
+<text x="796" y="324" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="40" fill="#e6e9ee" font-weight="700">26 / 38</text>
+<text x="796" y="356" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#8b949e">render agreements</text>
+<text x="796" y="386" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#8b949e">rejected</text>
+<rect x="48" y="424" width="378" height="44" rx="0" fill="#171c24" stroke="#7f9bb8" stroke-width="3"/>
+<text x="64" y="454" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#e6e9ee" font-weight="700">1 shadow, logs handed over</text>
+<rect x="434" y="424" width="258" height="44" rx="0" fill="none" stroke="#2c333d" stroke-width="2"/>
+<text x="450" y="454" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#8b949e">2 read-only tools</text>
+<rect x="700" y="424" width="245" height="44" rx="0" fill="none" stroke="#2c333d" stroke-width="2"/>
+<text x="716" y="454" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#8b949e">3 live diagnosis</text>
+<rect x="953" y="424" width="192" height="44" rx="0" fill="none" stroke="#2c333d" stroke-width="2"/>
+<text x="969" y="454" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#8b949e">4 the switch</text>
+<text x="48" y="508" font-family="SF Mono, Menlo, Consolas, monospace" font-size="23" fill="#8b949e">python3 shadow-medic/compare.py scoreboard --family ops | --family render</text>
 </svg>

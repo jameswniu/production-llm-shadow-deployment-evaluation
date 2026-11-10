@@ -39,10 +39,8 @@ def build():
     x = M
     for (big, cap, dec), w in zip(cards, widths):
         out.append(P.rect(x, top, w, ch, P.PANEL, P.EDGE))
-        if dec and dec == "CONTINUE":
-            out.append(f'<rect x="{x + 8}" y="{top}" width="{w - 16}" height="5" fill="{P.ACCENT}"/>')
-        elif dec:
-            out.append(f'<rect x="{x + 8}" y="{top}" width="{w - 16}" height="5" fill="{facts.decision_color(dec, P)}"/>')
+        # one thin rule along the top edge carries the verdict color; nothing else on the card is colored
+        out.append(P.rect(x, top, w, 4, facts.decision_color(dec, P) if dec else P.MUTED))
         out.append(P.t(x + 22, top + 54, big, 40, P.INK, bold=True, inner=w - 44))
         for i, line in enumerate(cap):
             out.append(P.t(x + 22, top + 86 + i * 30, line, 24, P.MUTED, inner=w - 44))
@@ -53,12 +51,12 @@ def build():
     x = M
     for i, lab in enumerate(labels):
         w = int(P.fit(lab, 23, 10_000)) + 2 * pad
-        if i == 0:
-            out.append(P.rect(x, py, w, ph, P.ACCENT, rx=8))
-            out.append(P.t(x + pad, py + 30, lab, 23, P.GROUND, bold=True, inner=w - 2 * pad + 40))
+        if i == 0:  # the rung that has run: an accent outline, no fill
+            out.append(P.rect(x, py, w, ph, P.PANEL, P.ACCENT, sw=3))
+            out.append(P.t(x + pad, py + 30, lab, 23, P.INK, bold=True, inner=w - 2 * pad + 40))
         else:
-            out.append(P.rect(x, py, w, ph, "none", P.EDGE, sw=2))
-            out.append(P.t(x + pad, py + 30, lab, 23, P.INK, inner=w - 2 * pad + 40))
+            out.append(P.rect(x, py, w, ph, "none", P.EDGE))
+            out.append(P.t(x + pad, py + 30, lab, 23, P.MUTED, inner=w - 2 * pad + 40))
         x += w + pgap
     if x - pgap > W - M:
         raise ValueError("pill row overflows the hero")

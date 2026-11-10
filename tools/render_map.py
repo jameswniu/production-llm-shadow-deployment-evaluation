@@ -46,9 +46,7 @@ def draw_cards(out, y, cards, ncols, widths=None):
         x = X0
         for i, c in enumerate(row):
             w = widths[i]
-            out.append(P.rect(x, y, w, hh, P.PANEL, P.EDGE))
-            if c.get("accent"):
-                out.append(f'<rect x="{x + 8}" y="{y}" width="{w - 16}" height="5" fill="{P.ACCENT}"/>')
+            out.append(P.rect(x, y, w, hh, P.PANEL, P.ACCENT if c.get("accent") else P.EDGE, sw=3 if c.get("accent") else 2))
             out.append(P.t(x + 20, y + 40, c["title"], 26, P.INK, bold=True, inner=w - 40))
             for j, ln in enumerate(card_h(c, w)[1]):
                 out.append(P.t(x + 20, y + 74 + j * 30, ln, 24, P.INK, inner=w - 40))
@@ -92,11 +90,11 @@ def build():
     for num, label, note, ncols, cards in sections:
         body.append(P.t(X0, y + 24, f"{num}  {label}", 24, P.INK, bold=True, spacing=1, inner=X1 - X0))
         body.append(P.t(X0 + 260, y + 24, note, 23, P.MUTED, inner=X1 - X0 - 260))
-        body.append(f'<line x1="{X0}" y1="{y + 40}" x2="{X1}" y2="{y + 40}" stroke="{P.EDGE}" stroke-width="1.5"/>')
+        body.append(P.line(X0, y + 40, X1, y + 40))
         y = draw_cards(body, y + 56, cards, ncols, [300, 360, 412] if ncols == 3 else None) + 10
     H = y + 8
     out = [P.svg_open(W, H, "System map: how a challenger earns the switch")]
-    out.append(f'<rect x="0" y="0" width="10" height="{H}" fill="{P.ACCENT}"/>')
+    out.append(P.rect(0, 0, 8, H, P.ACCENT))
     out.append(P.t(X0, 56, "SYSTEM MAP", 23, P.MUTED, spacing=2, inner=300))
     out.append(P.t(X0, 116, "How a challenger earns the switch", 44, P.INK, bold=True, inner=1100))
     out.append(P.t(X0, 160, "One seam, one loop, one gate, four rungs", 25, P.MUTED, inner=1100))

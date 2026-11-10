@@ -1,45 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="100%" role="img" aria-label="Agreement with the trusted model on held-out incidents, and the misses by direction">
-<rect width="1200" height="560" rx="12" fill="#041c1c"/>
-<text x="40" y="58" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#ffe6cb" font-weight="700">Agreement on held-out incidents</text>
-<line x1="600.0" y1="150" x2="600.0" y2="392" stroke="#ffe6cb" stroke-width="2" stroke-dasharray="8 6"/>
-<line x1="540.0" y1="184" x2="540.0" y2="392" stroke="#ffe6cb" stroke-width="2" stroke-dasharray="8 6"/>
-<text x="592.0" y="150" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#C7A96B" text-anchor="end">92% worth promoting</text>
-<text x="532.0" y="186" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#C7A96B" text-anchor="end">80% not good enough</text>
-<text x="40" y="272" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb" font-weight="700">ops</text>
-<rect x="140" y="248" width="419.4" height="40" rx="4" fill="#FFBF00"/>
-<line x1="504.0" y1="268" x2="595.0" y2="268" stroke="#ffe6cb" stroke-width="3"/>
-<line x1="504.0" y1="257" x2="504.0" y2="279" stroke="#ffe6cb" stroke-width="3"/>
-<line x1="595.0" y1="257" x2="595.0" y2="279" stroke="#ffe6cb" stroke-width="3"/>
-<text x="140" y="238" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb" font-weight="700">52 / 62 · 84%</text>
-<text x="330" y="238" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#FFBF00">keep shadowing</text>
-<text x="40" y="362" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb" font-weight="700">render</text>
-<rect x="140" y="338" width="342.1" height="40" rx="4" fill="#d14a4a"/>
-<line x1="402.7" y1="358" x2="544.6" y2="358" stroke="#ffe6cb" stroke-width="3"/>
-<line x1="402.7" y1="347" x2="402.7" y2="369" stroke="#ffe6cb" stroke-width="3"/>
-<line x1="544.6" y1="347" x2="544.6" y2="369" stroke="#ffe6cb" stroke-width="3"/>
-<text x="140" y="328" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb" font-weight="700">26 / 38 · 68%</text>
-<text x="330" y="328" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#d14a4a">rejected</text>
-<line x1="140" y1="392" x2="640" y2="392" stroke="#B8860B" stroke-width="2"/>
-<text x="140" y="424" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#C7A96B" text-anchor="middle">0%</text>
-<text x="390.0" y="424" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#C7A96B" text-anchor="middle">50%</text>
-<text x="640" y="424" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#C7A96B" text-anchor="middle">100%</text>
-<text x="40" y="470" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#C7A96B">Whisker: Wilson 95% interval</text>
-<text x="700" y="58" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#ffe6cb" font-weight="700">The misses, by direction</text>
-<text x="700" y="156" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb" font-weight="700">ops · 10 misses</text>
-<rect x="700" y="170" width="191.7" height="44" rx="4" fill="#C7A96B"/>
-<text x="795.9" y="201" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#041c1c" font-weight="700" text-anchor="middle">5</text>
-<rect x="891.7" y="170" width="191.7" height="44" rx="4" fill="#B8860B"/>
-<text x="987.6" y="201" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb" font-weight="700" text-anchor="middle">5</text>
-<text x="700" y="256" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb" font-weight="700">render · 12 misses</text>
-<rect x="700" y="270" width="345.0" height="44" rx="4" fill="#C7A96B"/>
-<text x="872.5" y="301" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#041c1c" font-weight="700" text-anchor="middle">9</text>
-<rect x="1045.0" y="270" width="115.0" height="44" rx="4" fill="#B8860B"/>
-<text x="1102.5" y="301" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#ffe6cb" font-weight="700" text-anchor="middle">3</text>
-<rect x="700" y="360" width="26" height="26" rx="4" fill="#C7A96B"/>
-<text x="740" y="380" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#ffe6cb">medic JUDGMENT,</text>
-<text x="740" y="408" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#ffe6cb">challenger MECHANICAL</text>
-<rect x="700" y="426" width="26" height="26" rx="4" fill="#B8860B"/>
-<text x="740" y="446" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#ffe6cb">medic MECHANICAL,</text>
-<text x="740" y="474" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#ffe6cb">challenger JUDGMENT</text>
-<text x="40" y="530" font-family="SF Mono, Menlo, Consolas, monospace" font-size="23" fill="#C7A96B">python3 tools/render_panel.py --check</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="100%" role="img" shape-rendering="crispEdges" aria-label="Agreement with the trusted model on held-out incidents, and the misses by direction">
+<rect width="1200" height="560" fill="#0e1117"/>
+<rect x="1" y="1" width="1198" height="558" fill="none" stroke="#2c333d" stroke-width="2"/>
+<text x="40" y="58" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#e6e9ee" font-weight="700">Agreement on held-out incidents</text>
+<line x1="600.0" y1="150" x2="600.0" y2="392" stroke="#8b949e" stroke-width="2" stroke-dasharray="8 6"/>
+<line x1="540.0" y1="184" x2="540.0" y2="392" stroke="#8b949e" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="592.0" y="150" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#8b949e" text-anchor="end">92% worth promoting</text>
+<text x="532.0" y="186" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#8b949e" text-anchor="end">80% not good enough</text>
+<text x="40" y="272" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee" font-weight="700">ops</text>
+<rect x="140" y="248" width="419.4" height="40" rx="0" fill="#7f9bb8" stroke="#7f9bb8" stroke-width="2" fill-opacity="0.25"/>
+<line x1="504.0" y1="268" x2="595.0" y2="268" stroke="#e6e9ee" stroke-width="3"/>
+<line x1="504.0" y1="257" x2="504.0" y2="279" stroke="#e6e9ee" stroke-width="3"/>
+<line x1="595.0" y1="257" x2="595.0" y2="279" stroke="#e6e9ee" stroke-width="3"/>
+<text x="140" y="238" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee" font-weight="700">52 / 62 · 84%</text>
+<text x="330" y="238" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#7f9bb8">keep shadowing</text>
+<text x="40" y="362" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee" font-weight="700">render</text>
+<rect x="140" y="338" width="342.1" height="40" rx="0" fill="#b5654a" stroke="#b5654a" stroke-width="2" fill-opacity="0.25"/>
+<line x1="402.7" y1="358" x2="544.6" y2="358" stroke="#e6e9ee" stroke-width="3"/>
+<line x1="402.7" y1="347" x2="402.7" y2="369" stroke="#e6e9ee" stroke-width="3"/>
+<line x1="544.6" y1="347" x2="544.6" y2="369" stroke="#e6e9ee" stroke-width="3"/>
+<text x="140" y="328" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee" font-weight="700">26 / 38 · 68%</text>
+<text x="330" y="328" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#b5654a">rejected</text>
+<line x1="140" y1="392" x2="640" y2="392" stroke="#2c333d" stroke-width="2"/>
+<text x="140" y="424" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#8b949e" text-anchor="middle">0%</text>
+<text x="390.0" y="424" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#8b949e" text-anchor="middle">50%</text>
+<text x="640" y="424" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#8b949e" text-anchor="middle">100%</text>
+<text x="40" y="470" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#8b949e">Whisker: Wilson 95% interval</text>
+<text x="700" y="58" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#e6e9ee" font-weight="700">The misses, by direction</text>
+<text x="700" y="156" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee" font-weight="700">ops · 10 misses</text>
+<rect x="700" y="170" width="191.7" height="44" rx="0" fill="#8b949e"/>
+<text x="795.9" y="201" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#0e1117" font-weight="700" text-anchor="middle">5</text>
+<rect x="892.7" y="171" width="189.7" height="42" rx="0" fill="#171c24" stroke="#8b949e" stroke-width="2"/>
+<text x="987.6" y="201" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee" font-weight="700" text-anchor="middle">5</text>
+<text x="700" y="256" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee" font-weight="700">render · 12 misses</text>
+<rect x="700" y="270" width="345.0" height="44" rx="0" fill="#8b949e"/>
+<text x="872.5" y="301" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#0e1117" font-weight="700" text-anchor="middle">9</text>
+<rect x="1046.0" y="271" width="113.0" height="42" rx="0" fill="#171c24" stroke="#8b949e" stroke-width="2"/>
+<text x="1102.5" y="301" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6e9ee" font-weight="700" text-anchor="middle">3</text>
+<rect x="700" y="360" width="26" height="26" rx="0" fill="#8b949e"/>
+<text x="740" y="380" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#e6e9ee">medic JUDGMENT,</text>
+<text x="740" y="408" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#e6e9ee">challenger MECHANICAL</text>
+<rect x="701" y="427" width="24" height="24" rx="0" fill="#171c24" stroke="#8b949e" stroke-width="2"/>
+<text x="740" y="446" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#e6e9ee">medic MECHANICAL,</text>
+<text x="740" y="474" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="23" fill="#e6e9ee">challenger JUDGMENT</text>
+<text x="40" y="530" font-family="SF Mono, Menlo, Consolas, monospace" font-size="23" fill="#8b949e">python3 tools/render_panel.py --check</text>
 </svg>

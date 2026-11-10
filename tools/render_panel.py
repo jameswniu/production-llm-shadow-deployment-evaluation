@@ -15,7 +15,14 @@ import palette as P  # noqa: E402
 
 OUT = os.path.join(P.ROOT, "media", "agreement-panel.svg")
 W, H = 1200, 560
-DARK = "#B8860B"
+TINT = ' fill-opacity="0.25"'
+
+
+def miss_box(x, y, w, h, solid):
+    """The two miss directions share one hue: a solid box for one, an outlined box for the other."""
+    if solid:
+        return P.rect(x, y, w, h, P.MUTED)
+    return P.rect(x + 1, y + 1, max(w - 2, 0), h - 2, P.PANEL, P.MUTED)
 
 
 def build():
@@ -28,8 +35,8 @@ def build():
         return round(px0 + pw * p, 1)
     top, bot = 190, 392
     # reference lines; the 92 label sits in the upper row, the 80 label in the lower row so neither crosses a line
-    o.append(f'<line x1="{X(.92)}" y1="{top - 40}" x2="{X(.92)}" y2="{bot}" stroke="{P.INK}" stroke-width="2" stroke-dasharray="8 6"/>')
-    o.append(f'<line x1="{X(.80)}" y1="{top - 6}" x2="{X(.80)}" y2="{bot}" stroke="{P.INK}" stroke-width="2" stroke-dasharray="8 6"/>')
+    o.append(P.line(X(.92), top - 40, X(.92), bot, P.MUTED, dash="8 6"))
+    o.append(P.line(X(.80), top - 6, X(.80), bot, P.MUTED, dash="8 6"))
     o.append(P.t(X(.92) - 8, top - 62 + 22, "92% worth promoting", 23, P.MUTED, anchor="end", inner=X(.92) - 40))
     o.append(P.t(X(.80) - 8, top - 6 + 2 - 8 + 8, "80% not good enough", 23, P.MUTED, anchor="end", inner=X(.80) - 40))
     for i, fam in enumerate(facts.FAMILIES):
@@ -38,15 +45,16 @@ def build():
         by = ty + 12
         col = facts.decision_color(d["decision"], P)
         o.append(P.t(40, ty + 36, fam, 24, P.INK, bold=True))
-        o.append(P.rect(px0, by, round(pw * d["rate"], 1), 40, col, rx=4))
+        # the verdict color as an outline with a faint tint, never a solid fill
+        o.append(P.rect(px0, by, round(pw * d["rate"], 1), 40, col, col, extra=TINT))
         cy = by + 20
         lo, hi = X(d["wilson_low"]), X(d["wilson_high"])
-        o.append(f'<line x1="{lo}" y1="{cy}" x2="{hi}" y2="{cy}" stroke="{P.INK}" stroke-width="3"/>')
-        o.append(f'<line x1="{lo}" y1="{cy - 11}" x2="{lo}" y2="{cy + 11}" stroke="{P.INK}" stroke-width="3"/>')
-        o.append(f'<line x1="{hi}" y1="{cy - 11}" x2="{hi}" y2="{cy + 11}" stroke="{P.INK}" stroke-width="3"/>')
+        o.append(P.line(lo, cy, hi, cy, P.INK, sw=3))
+        o.append(P.line(lo, cy - 11, lo, cy + 11, P.INK, sw=3))
+        o.append(P.line(hi, cy - 11, hi, cy + 11, P.INK, sw=3))
         o.append(P.t(px0, ty + 2, f"{d['agreements']} / {d['scored']} · {round(d['rate'] * 100)}%", 24, P.INK, bold=True, inner=300))
         o.append(P.t(px0 + 190, ty + 2, facts.verdict_word(d["decision"]), 24, col, inner=200))
-    o.append(f'<line x1="{px0}" y1="{bot}" x2="{px0 + pw}" y2="{bot}" stroke="{P.EDGE}" stroke-width="2"/>')
+    o.append(P.line(px0, bot, px0 + pw, bot))
     for p in (0, .5, 1):
         o.append(P.t(X(p), bot + 32, f"{round(p * 100)}%", 23, P.MUTED, anchor="middle"))
     o.append(P.t(40, 470, "Whisker: Wilson 95% interval", 23, P.MUTED, inner=610))
@@ -61,17 +69,17 @@ def build():
         ty = 156 + i * 100
         o.append(P.t(rx0, ty, f"{fam} · {d['misses']} misses", 24, P.INK, bold=True, inner=rw))
         x = rx0
-        for n, colr, txt in ((a, P.MUTED, P.GROUND), (b, DARK, P.INK)):
+        for n, solid in ((a, True), (b, False)):
             if not mx:
                 break
             w = round(n * unit, 1)
-            o.append(P.rect(x, ty + 14, w, 44, colr, rx=4))
-            o.append(P.t(round(x + w / 2, 1), ty + 45, str(n), 24, txt, bold=True, anchor="middle"))
+            o.append(miss_box(x, ty + 14, w, 44, solid))
+            o.append(P.t(round(x + w / 2, 1), ty + 45, str(n), 24, P.GROUND if solid else P.INK, bold=True, anchor="middle"))
             x += w
     ly = 380
-    for j, (colr, l1, l2) in enumerate(((P.MUTED, "medic JUDGMENT,", "challenger MECHANICAL"), (DARK, "medic MECHANICAL,", "challenger JUDGMENT"))):
+    for j, (solid, l1, l2) in enumerate(((True, "medic JUDGMENT,", "challenger MECHANICAL"), (False, "medic MECHANICAL,", "challenger JUDGMENT"))):
         yy = ly + j * 66
-        o.append(P.rect(rx0, yy - 20, 26, 26, colr, rx=4))
+        o.append(miss_box(rx0, yy - 20, 26, 26, solid))
         o.append(P.t(rx0 + 40, yy, l1, 23, P.INK, inner=rw - 40))
         o.append(P.t(rx0 + 40, yy + 28, l2, 23, P.INK, inner=rw - 40))
     o.append(P.t(40, 530, "python3 tools/render_panel.py --check", 23, P.MUTED, mono=True, inner=1100))
