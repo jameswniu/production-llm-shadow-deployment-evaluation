@@ -28,6 +28,10 @@ The trusted model is the medic, a Claude agent in my fleet that diagnoses every 
 - **The gate was right to wait.** Nine straight agreements only reach +1.26 against a promote line of +2.94, so even a perfect start keeps shadowing. All 62 ops incidents together hold 10 misses.
 - **So the switch is per family, never one flag.** Today it is true for neither.
 
+The output below comes from a sequential probability ratio test (SPRT), whose running score S promotes at +2.94 and rejects at -2.94. H0 says the challenger agrees 80% of the time (p0), not good enough, and the alternative says 92% (p1).
+
+Alpha and beta cap the odds of a wrong promote or a wrong reject at 5%, and wilson95 is the 95% confidence interval for the agreement rate.
+
 ```
 $ ./compare.py scoreboard --family ops
 [holdout] agreement 52/62 = 84%  wilson95=[73%, 91%]  pending=8
