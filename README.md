@@ -27,14 +27,17 @@ The trusted model here is the medic, a Claude agent that diagnoses every failed 
 Every verdict is one of two classes. MECHANICAL means the fix is a rerun or a close by rule, and JUDGMENT means a person has to look. Agreement means the challenger matched the medic's own label, so the bar is no worse than the incumbent, not right in some absolute sense.
 
 ```mermaid
-%%{init: {'theme': 'base', 'flowchart': {'curve': 'linear', 'padding': 18, 'nodeSpacing': 44, 'rankSpacing': 44}, 'themeVariables': {'lineColor': '#8b949e', 'textColor': '#e6e9ee', 'primaryColor': '#171c24', 'primaryTextColor': '#e6e9ee', 'primaryBorderColor': '#2c333d', 'fontSize': '16px'}}}%%
-flowchart TD
-    A["Medic, the trusted model<br/>diagnoses each failed job"] --> B["Its ledger of verdicts"]
-    B --> C["harvest.py<br/>freezes each incident"]
-    C --> D["Incident folder<br/>logs + answer key"]
-    D --> E["run-shadow.sh<br/>challenger, same logs, no tools"]
-    D -.-> F
-    E --> F["compare.py<br/>agreement and the gate, per family"]
+%%{init: {'theme': 'base', 'flowchart': {'curve': 'linear', 'padding': 12, 'nodeSpacing': 36, 'rankSpacing': 36, 'wrappingWidth': 260, 'subGraphTitleMargin': {'top': 0, 'bottom': 0}}, 'themeVariables': {'lineColor': '#8b949e', 'textColor': '#e6e9ee', 'primaryColor': '#171c24', 'primaryTextColor': '#e6e9ee', 'primaryBorderColor': '#2c333d', 'clusterBkg': 'transparent', 'clusterBorder': 'transparent', 'fontSize': '16px'}}}%%
+flowchart TB
+    subgraph R1 [" "]
+        direction LR
+        A["Medic, the trusted model<br/>diagnoses each failed job"] --> B["Its ledger<br/>of verdicts"] --> C["harvest.py<br/>freezes each incident"]
+    end
+    subgraph R2 [" "]
+        direction LR
+        D["Incident folder<br/>logs + answer key"] --> E["run-shadow.sh<br/>challenger, same logs, no tools"] --> F["compare.py<br/>agreement and the gate, per family"]
+    end
+    R1 --> R2
     style A fill:#171c24,color:#e6e9ee,stroke:#e6e9ee,stroke-width:2px
     style B fill:#171c24,color:#e6e9ee,stroke:#8b949e,stroke-width:2px,stroke-dasharray:6 4
     style C fill:#171c24,color:#e6e9ee,stroke:#7f9bb8,stroke-width:2px
@@ -49,10 +52,10 @@ flowchart TD
 
 <img src="media/sprt-axis.svg" width="100%" alt="A decision axis from REJECT at minus 2.94 through KEEP SHADOWING to PROMOTE at plus 2.94. Ops sits at minus 1.90 with 52 of 62 and about 35 agreements to go. Render sits off the left end at minus 7.36 with 26 of 38.">
 
-- Ops, 52 of 62, keeps shadowing. The 95% interval runs from 73% to 91%. Two more misses would reject it. From zero, 22 straight agreements promote, and from today's score about 35.
-- Render, 26 of 38, is rejected. The misses turn on rules that live in the render tooling, not in the rulebook the challenger was handed.
-- The gate was right to wait. Nine straight agreements only reach +1.26 against a promote line of +2.94.
-- The switch is per job family, never one flag. Today it is true for neither.
+- **Ops, 52 of 62:** keeps shadowing. The 95% interval runs from 73% to 91%. Two more misses would reject it. From zero, 22 straight agreements promote, and from today's score about 35.
+- **Render, 26 of 38:** rejected. The misses turn on rules that live in the render tooling, not in the rulebook the challenger was handed.
+- **The wait:** nine straight agreements only reach +1.26 against a promote line of +2.94.
+- **The switch:** per job family, never one flag, and today it is true for neither.
 
 <img src="media/agreement-panel.svg" width="100%" alt="Left, agreement per family with its 95% interval against the 80% and 92% reference lines. Right, the misses by direction for each family.">
 
@@ -68,7 +71,7 @@ $ ./compare.py scoreboard --family render
 SPRT p0=0.8 p1=0.92 alpha=0.05 beta=0.05: S=-7.36 bounds=[-2.94, +2.94] -> REJECT (H0)
 ```
 
-Pending incidents arrived after the challenger runs stopped. CI reruns both commands, the badges and every figure on each push, and fails if anything on this page drifts from what the code prints.
+> Pending incidents arrived after the challenger runs stopped. CI reruns both commands, the badges and every figure on each push, and fails if anything on this page drifts from what the code prints.
 
 ## One incident, start to finish
 
@@ -104,9 +107,8 @@ On render the challenger mostly called a human-judgment case mechanical. Those r
 
 <img src="media/referee-card.svg" width="100%" alt="A referee card. The incumbent said JUDGMENT, the challenger MECHANICAL. A blind judge ruled for the challenger, a second judge refuted it, and the case went to a person.">
 
-The medic's label is the reference, not the truth. When the two disagree, `referee.py` gives the case to a blind judge with the two verdicts in random order, then tells a second judge to refute the ruling.
-
-Seven disagreements have gone through it. Three rulings stood, all for the challenger. Four were refuted and went to a person, each one a case where the medic said JUDGMENT and the challenger said MECHANICAL.
+- **The answer key:** the medic's label is the reference, not the truth. When the two disagree, `referee.py` gives the case to a blind judge with the two verdicts in random order, then tells a second judge to refute the ruling.
+- **Seven disagreements so far:** three rulings stood, all for the challenger. Four were refuted and went to a person, each one a case where the medic said JUDGMENT and the challenger said MECHANICAL.
 
 ## How a challenger earns the switch
 
@@ -117,19 +119,17 @@ Seven disagreements have gone through it. Three rulings stood, all for the chall
 3. Diagnose live while the medic still acts and still holds the keys.
 4. Flip one environment variable at the seam for each family that cleared the gate.
 
-Only held-out incidents count. Incidents used while tuning the prompt are marked dev and never reach the gate, and a promotion between rungs resets if the challenger invents a single log line.
+**Only held-out incidents count.** Incidents used while tuning the prompt are marked dev and never reach the gate, and a promotion between rungs resets if the challenger invents a single log line.
 
 ## What this page cannot show you
 
-- One operator, one fleet, one challenger. My own scheduled jobs, one incumbent's labels, GLM-5.3 as the challenger and a local llama3.1:8b as the weak control.
-- Incidents from the same job are not independent trials, though the test treats them so.
-- The family rule is hard-coded. Stages D, E and F are render, everything else is ops.
-- 8 of 130 incidents ship with logs, all of them render, so the ops result rests on verdicts you can count but not reread.
-- Only the first rung has run, and a tight claim near 90% agreement would need about 400 incidents, four times what is here.
+- **Scope:** one operator, one fleet, one challenger. My own scheduled jobs, one incumbent's labels, GLM-5.3 as the challenger and a local llama3.1:8b as the weak control.
+- **Not independent trials:** incidents from the same job are correlated, though the test treats them as independent.
+- **A hard-coded family rule:** stages D, E and F are render, everything else is ops.
+- **Shipped logs:** 8 of 130 incidents carry them, all render, so the ops result rests on verdicts you can count but not reread.
+- **Power:** only the first rung has run, and a tight claim near 90% agreement would need about 400 incidents, four times what is here.
 
 ## Quick start
-
-Python 3.12, no keys, no installs, no network calls after the clone.
 
 ```bash
 git clone https://github.com/jameswniu/production-llm-shadow-deployment-evaluation
@@ -137,6 +137,8 @@ cd production-llm-shadow-deployment-evaluation/shadow-medic
 python3 check-readme-scoreboard.py
 bash run-tests.sh
 ```
+
+> Python 3.12, no keys, no installs, no network calls after the clone.
 
 The first command reruns the gate and checks every number, badge and figure on this page. The second runs the 275 redaction, harvest and storage tests. The 123 challenger runs that logged token counts used 1,651,323 tokens, about 13,400 per incident.
 
@@ -159,10 +161,10 @@ Read https://github.com/jameswniu/production-llm-shadow-deployment-evaluation an
 
 ## What ships, and what stays private
 
-- Every verdict ships, so every number reruns. The scoreboard reads three fields per incident, the medic's class, the split and the challenger's class. The other 122 incidents ship only those fields plus the SHA-256 of the private original. 77 come from jobs that act on my personal accounts, and 45 were not cleared line by line.
-- The 8 shipped logs have paths, project names, links, emails and long ids swapped for placeholders like `[project]`. CI checks them for emails, phone numbers, ids and links, but not for names, because a name check needs each incident's private roster. Names were redacted when each incident was frozen, and every shipped log was read line by line before release.
+- **Verdicts:** every one ships, so every number reruns. The scoreboard reads three fields per incident, the medic's class, the split and the challenger's class. The other 122 incidents ship only those fields plus the SHA-256 of the private original. 77 come from jobs that act on my personal accounts, and 45 were not cleared line by line.
+- **Logs:** the 8 that ship are scrubbed. Paths, project names, links, emails and long ids are swapped for placeholders like `[project]`. CI checks them for emails, phone numbers, ids and links, but not for names, because a name check needs each incident's private roster. Names were redacted when each incident was frozen, and every shipped log was read line by line before release.
 
-Seven rules the instrument learned the hard way, each at the price of one wrong verdict, are in [`docs/boundary.md`](docs/boundary.md).
+> Seven rules the instrument learned the hard way, each at the price of one wrong verdict, are in [`docs/boundary.md`](docs/boundary.md).
 
 ## Files
 
